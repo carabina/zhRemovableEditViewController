@@ -1,0 +1,711 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F22B37491F8CBBA800009C81 /* LewReorderableLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37421F8CBB9200009C81 /* LewReorderableLayout.h */; };
+		F22B374A1F8CBBA800009C81 /* LewReorderableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37481F8CBB9200009C81 /* LewReorderableLayout.m */; };
+		F22B374B1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */; };
+		F22B374C1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */; };
+		F22B374D1F8CBBA800009C81 /* zhRemovableEditModel.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */; };
+		F22B374E1F8CBBA800009C81 /* zhRemovableEditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37461F8CBB9200009C81 /* zhRemovableEditModel.m */; };
+		F22B374F1F8CBBA800009C81 /* zhRemovableEditViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37471F8CBB9200009C81 /* zhRemovableEditViewController.h */; };
+		F22B37501F8CBBA800009C81 /* zhRemovableEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37451F8CBB9200009C81 /* zhRemovableEditViewController.m */; };
+		F2A605011F7D0B72009BF019 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605001F7D0B72009BF019 /* AppDelegate.m */; };
+		F2A605041F7D0B72009BF019 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605031F7D0B72009BF019 /* ViewController.m */; };
+		F2A605071F7D0B72009BF019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A605051F7D0B72009BF019 /* Main.storyboard */; };
+		F2A605091F7D0B72009BF019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A605081F7D0B72009BF019 /* Assets.xcassets */; };
+		F2A6050C1F7D0B72009BF019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A6050A1F7D0B72009BF019 /* LaunchScreen.storyboard */; };
+		F2A6050F1F7D0B72009BF019 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A6050E1F7D0B72009BF019 /* main.m */; };
+		F2A605191F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605181F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m */; };
+		F2A605241F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605231F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m */; };
+		F2A6053F1F7D4383009BF019 /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A6053E1F7D4383009BF019 /* MyModel.m */; };
+		F2A6054C1F7D58A3009BF019 /* zh_add.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605491F7D588D009BF019 /* zh_add.png */; };
+		F2A6054D1F7D58A3009BF019 /* zh_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6054A1F7D588D009BF019 /* zh_delete.png */; };
+		F2A6054E1F7D58A3009BF019 /* zh_done.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6054B1F7D588D009BF019 /* zh_done.png */; };
+		F2A605511F7DC78F009BF019 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605501F7DC78F009BF019 /* MyViewController.m */; };
+		F2A605651F7DDCFC009BF019 /* AA收款.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605531F7DDCEB009BF019 /* AA收款.png */; };
+		F2A605661F7DDD05009BF019 /* 体育服务.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605541F7DDCEB009BF019 /* 体育服务.png */; };
+		F2A605671F7DDD05009BF019 /* 共享单车.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605551F7DDCEB009BF019 /* 共享单车.png */; };
+		F2A605681F7DDD05009BF019 /* 到位.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605561F7DDCEB009BF019 /* 到位.png */; };
+		F2A605691F7DDD05009BF019 /* 天猫.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605571F7DDCEB009BF019 /* 天猫.png */; };
+		F2A6056A1F7DDD05009BF019 /* 奖励金.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605581F7DDCEB009BF019 /* 奖励金.png */; };
+		F2A6056B1F7DDD05009BF019 /* 教育.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605591F7DDCEB009BF019 /* 教育.png */; };
+		F2A6056C1F7DDD05009BF019 /* 更多.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6055A1F7DDCEB009BF019 /* 更多.png */; };
+		F2A6056D1F7DDD05009BF019 /* 服务.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6055B1F7DDCEB009BF019 /* 服务.png */; };
+		F2A6056E1F7DDD05009BF019 /* 淘宝.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6055C1F7DDCEB009BF019 /* 淘宝.png */; };
+		F2A6056F1F7DDD05009BF019 /* 淘票票.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6055D1F7DDCEB009BF019 /* 淘票票.png */; };
+		F2A605701F7DDD05009BF019 /* 滴滴出行.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6055E1F7DDCEB009BF019 /* 滴滴出行.png */; };
+		F2A605711F7DDD05009BF019 /* 股票.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6055F1F7DDCEB009BF019 /* 股票.png */; };
+		F2A605721F7DDD05009BF019 /* 芝麻信用.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605601F7DDCEB009BF019 /* 芝麻信用.png */; };
+		F2A605731F7DDD05009BF019 /* 蚂蚁森林.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605611F7DDCEB009BF019 /* 蚂蚁森林.png */; };
+		F2A605741F7DDD05009BF019 /* 转账.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605621F7DDCEB009BF019 /* 转账.png */; };
+		F2A605751F7DDD05009BF019 /* 运动.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605631F7DDCEB009BF019 /* 运动.png */; };
+		F2A605761F7DDD05009BF019 /* 饿了么.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605641F7DDCEB009BF019 /* 饿了么.png */; };
+		F2A6057B1F7E3321009BF019 /* 虚线选框.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6057A1F7E3318009BF019 /* 虚线选框.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F2A605151F7D0B72009BF019 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2A604F41F7D0B71009BF019 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2A604FB1F7D0B71009BF019;
+			remoteInfo = zhRemovableEditViewController;
+		};
+		F2A605201F7D0B72009BF019 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2A604F41F7D0B71009BF019 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2A604FB1F7D0B71009BF019;
+			remoteInfo = zhRemovableEditViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditModel.h; sourceTree = "<group>"; };
+		F22B37421F8CBB9200009C81 /* LewReorderableLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LewReorderableLayout.h; sourceTree = "<group>"; };
+		F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditCollectionViewCell.m; sourceTree = "<group>"; };
+		F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditCollectionViewCell.h; sourceTree = "<group>"; };
+		F22B37451F8CBB9200009C81 /* zhRemovableEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditViewController.m; sourceTree = "<group>"; };
+		F22B37461F8CBB9200009C81 /* zhRemovableEditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditModel.m; sourceTree = "<group>"; };
+		F22B37471F8CBB9200009C81 /* zhRemovableEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditViewController.h; sourceTree = "<group>"; };
+		F22B37481F8CBB9200009C81 /* LewReorderableLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LewReorderableLayout.m; sourceTree = "<group>"; };
+		F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhRemovableEditViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A604FF1F7D0B72009BF019 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F2A605001F7D0B72009BF019 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F2A605021F7D0B72009BF019 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F2A605031F7D0B72009BF019 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F2A605061F7D0B72009BF019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F2A605081F7D0B72009BF019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2A6050B1F7D0B72009BF019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F2A6050D1F7D0B72009BF019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2A6050E1F7D0B72009BF019 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F2A605141F7D0B72009BF019 /* zhRemovableEditViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhRemovableEditViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A605181F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditViewControllerTests.m; sourceTree = "<group>"; };
+		F2A6051A1F7D0B72009BF019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2A6051F1F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhRemovableEditViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A605231F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditViewControllerUITests.m; sourceTree = "<group>"; };
+		F2A605251F7D0B72009BF019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2A6053D1F7D4383009BF019 /* MyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
+		F2A6053E1F7D4383009BF019 /* MyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
+		F2A605491F7D588D009BF019 /* zh_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_add.png; sourceTree = "<group>"; };
+		F2A6054A1F7D588D009BF019 /* zh_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_delete.png; sourceTree = "<group>"; };
+		F2A6054B1F7D588D009BF019 /* zh_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_done.png; sourceTree = "<group>"; };
+		F2A6054F1F7DC78F009BF019 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		F2A605501F7DC78F009BF019 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		F2A605531F7DDCEB009BF019 /* AA收款.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AA收款.png"; sourceTree = "<group>"; };
+		F2A605541F7DDCEB009BF019 /* 体育服务.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "体育服务.png"; sourceTree = "<group>"; };
+		F2A605551F7DDCEB009BF019 /* 共享单车.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "共享单车.png"; sourceTree = "<group>"; };
+		F2A605561F7DDCEB009BF019 /* 到位.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "到位.png"; sourceTree = "<group>"; };
+		F2A605571F7DDCEB009BF019 /* 天猫.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天猫.png"; sourceTree = "<group>"; };
+		F2A605581F7DDCEB009BF019 /* 奖励金.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "奖励金.png"; sourceTree = "<group>"; };
+		F2A605591F7DDCEB009BF019 /* 教育.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "教育.png"; sourceTree = "<group>"; };
+		F2A6055A1F7DDCEB009BF019 /* 更多.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "更多.png"; sourceTree = "<group>"; };
+		F2A6055B1F7DDCEB009BF019 /* 服务.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "服务.png"; sourceTree = "<group>"; };
+		F2A6055C1F7DDCEB009BF019 /* 淘宝.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "淘宝.png"; sourceTree = "<group>"; };
+		F2A6055D1F7DDCEB009BF019 /* 淘票票.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "淘票票.png"; sourceTree = "<group>"; };
+		F2A6055E1F7DDCEB009BF019 /* 滴滴出行.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "滴滴出行.png"; sourceTree = "<group>"; };
+		F2A6055F1F7DDCEB009BF019 /* 股票.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "股票.png"; sourceTree = "<group>"; };
+		F2A605601F7DDCEB009BF019 /* 芝麻信用.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "芝麻信用.png"; sourceTree = "<group>"; };
+		F2A605611F7DDCEB009BF019 /* 蚂蚁森林.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蚂蚁森林.png"; sourceTree = "<group>"; };
+		F2A605621F7DDCEB009BF019 /* 转账.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "转账.png"; sourceTree = "<group>"; };
+		F2A605631F7DDCEB009BF019 /* 运动.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运动.png"; sourceTree = "<group>"; };
+		F2A605641F7DDCEB009BF019 /* 饿了么.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "饿了么.png"; sourceTree = "<group>"; };
+		F2A6057A1F7E3318009BF019 /* 虚线选框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "虚线选框.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2A604F91F7D0B71009BF019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A605111F7D0B72009BF019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A6051C1F7D0B72009BF019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F22B37301F8C902000009C81 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F22B37421F8CBB9200009C81 /* LewReorderableLayout.h */,
+				F22B37481F8CBB9200009C81 /* LewReorderableLayout.m */,
+				F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */,
+				F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */,
+				F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */,
+				F22B37461F8CBB9200009C81 /* zhRemovableEditModel.m */,
+				F22B37471F8CBB9200009C81 /* zhRemovableEditViewController.h */,
+				F22B37451F8CBB9200009C81 /* zhRemovableEditViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F2A604F31F7D0B71009BF019 = {
+			isa = PBXGroup;
+			children = (
+				F22B37301F8C902000009C81 /* Classes */,
+				F2A604FE1F7D0B72009BF019 /* zhRemovableEditViewController */,
+				F2A605481F7D588D009BF019 /* Images */,
+				F2A605171F7D0B72009BF019 /* zhRemovableEditViewControllerTests */,
+				F2A605221F7D0B72009BF019 /* zhRemovableEditViewControllerUITests */,
+				F2A604FD1F7D0B71009BF019 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F2A604FD1F7D0B71009BF019 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */,
+				F2A605141F7D0B72009BF019 /* zhRemovableEditViewControllerTests.xctest */,
+				F2A6051F1F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2A604FE1F7D0B72009BF019 /* zhRemovableEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F2A6053D1F7D4383009BF019 /* MyModel.h */,
+				F2A6053E1F7D4383009BF019 /* MyModel.m */,
+				F2A6054F1F7DC78F009BF019 /* MyViewController.h */,
+				F2A605501F7DC78F009BF019 /* MyViewController.m */,
+				F2A604FF1F7D0B72009BF019 /* AppDelegate.h */,
+				F2A605001F7D0B72009BF019 /* AppDelegate.m */,
+				F2A605021F7D0B72009BF019 /* ViewController.h */,
+				F2A605031F7D0B72009BF019 /* ViewController.m */,
+				F2A605051F7D0B72009BF019 /* Main.storyboard */,
+				F2A605081F7D0B72009BF019 /* Assets.xcassets */,
+				F2A6050A1F7D0B72009BF019 /* LaunchScreen.storyboard */,
+				F2A6050D1F7D0B72009BF019 /* Info.plist */,
+				F2A6050E1F7D0B72009BF019 /* main.m */,
+			);
+			path = zhRemovableEditViewController;
+			sourceTree = "<group>";
+		};
+		F2A605171F7D0B72009BF019 /* zhRemovableEditViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2A605181F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m */,
+				F2A6051A1F7D0B72009BF019 /* Info.plist */,
+			);
+			path = zhRemovableEditViewControllerTests;
+			sourceTree = "<group>";
+		};
+		F2A605221F7D0B72009BF019 /* zhRemovableEditViewControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F2A605231F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m */,
+				F2A605251F7D0B72009BF019 /* Info.plist */,
+			);
+			path = zhRemovableEditViewControllerUITests;
+			sourceTree = "<group>";
+		};
+		F2A605481F7D588D009BF019 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F2A605521F7DDCEB009BF019 /* icon */,
+				F2A605491F7D588D009BF019 /* zh_add.png */,
+				F2A6054A1F7D588D009BF019 /* zh_delete.png */,
+				F2A6054B1F7D588D009BF019 /* zh_done.png */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
+		};
+		F2A605521F7DDCEB009BF019 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				F2A605531F7DDCEB009BF019 /* AA收款.png */,
+				F2A605541F7DDCEB009BF019 /* 体育服务.png */,
+				F2A605551F7DDCEB009BF019 /* 共享单车.png */,
+				F2A605561F7DDCEB009BF019 /* 到位.png */,
+				F2A605571F7DDCEB009BF019 /* 天猫.png */,
+				F2A605581F7DDCEB009BF019 /* 奖励金.png */,
+				F2A605591F7DDCEB009BF019 /* 教育.png */,
+				F2A6055A1F7DDCEB009BF019 /* 更多.png */,
+				F2A6055B1F7DDCEB009BF019 /* 服务.png */,
+				F2A6055C1F7DDCEB009BF019 /* 淘宝.png */,
+				F2A6055D1F7DDCEB009BF019 /* 淘票票.png */,
+				F2A6055E1F7DDCEB009BF019 /* 滴滴出行.png */,
+				F2A6055F1F7DDCEB009BF019 /* 股票.png */,
+				F2A605601F7DDCEB009BF019 /* 芝麻信用.png */,
+				F2A605611F7DDCEB009BF019 /* 蚂蚁森林.png */,
+				F2A605621F7DDCEB009BF019 /* 转账.png */,
+				F2A605631F7DDCEB009BF019 /* 运动.png */,
+				F2A605641F7DDCEB009BF019 /* 饿了么.png */,
+				F2A6057A1F7E3318009BF019 /* 虚线选框.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2A604FB1F7D0B71009BF019 /* zhRemovableEditViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2A605281F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewController" */;
+			buildPhases = (
+				F2A604F81F7D0B71009BF019 /* Sources */,
+				F2A604F91F7D0B71009BF019 /* Frameworks */,
+				F2A604FA1F7D0B71009BF019 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = zhRemovableEditViewController;
+			productName = zhRemovableEditViewController;
+			productReference = F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F2A605131F7D0B72009BF019 /* zhRemovableEditViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2A6052B1F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewControllerTests" */;
+			buildPhases = (
+				F2A605101F7D0B72009BF019 /* Sources */,
+				F2A605111F7D0B72009BF019 /* Frameworks */,
+				F2A605121F7D0B72009BF019 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2A605161F7D0B72009BF019 /* PBXTargetDependency */,
+			);
+			name = zhRemovableEditViewControllerTests;
+			productName = zhRemovableEditViewControllerTests;
+			productReference = F2A605141F7D0B72009BF019 /* zhRemovableEditViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F2A6051E1F7D0B72009BF019 /* zhRemovableEditViewControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2A6052E1F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewControllerUITests" */;
+			buildPhases = (
+				F2A6051B1F7D0B72009BF019 /* Sources */,
+				F2A6051C1F7D0B72009BF019 /* Frameworks */,
+				F2A6051D1F7D0B72009BF019 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2A605211F7D0B72009BF019 /* PBXTargetDependency */,
+			);
+			name = zhRemovableEditViewControllerUITests;
+			productName = zhRemovableEditViewControllerUITests;
+			productReference = F2A6051F1F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2A604F41F7D0B71009BF019 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "金慧盈通";
+				TargetAttributes = {
+					F2A604FB1F7D0B71009BF019 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					F2A605131F7D0B72009BF019 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F2A604FB1F7D0B71009BF019;
+					};
+					F2A6051E1F7D0B72009BF019 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F2A604FB1F7D0B71009BF019;
+					};
+				};
+			};
+			buildConfigurationList = F2A604F71F7D0B71009BF019 /* Build configuration list for PBXProject "zhRemovableEditViewController" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F2A604F31F7D0B71009BF019;
+			productRefGroup = F2A604FD1F7D0B71009BF019 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2A604FB1F7D0B71009BF019 /* zhRemovableEditViewController */,
+				F2A605131F7D0B72009BF019 /* zhRemovableEditViewControllerTests */,
+				F2A6051E1F7D0B72009BF019 /* zhRemovableEditViewControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2A604FA1F7D0B71009BF019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A6057B1F7E3321009BF019 /* 虚线选框.png in Resources */,
+				F2A605661F7DDD05009BF019 /* 体育服务.png in Resources */,
+				F2A605671F7DDD05009BF019 /* 共享单车.png in Resources */,
+				F2A605681F7DDD05009BF019 /* 到位.png in Resources */,
+				F2A605691F7DDD05009BF019 /* 天猫.png in Resources */,
+				F2A6056A1F7DDD05009BF019 /* 奖励金.png in Resources */,
+				F2A6056B1F7DDD05009BF019 /* 教育.png in Resources */,
+				F2A6056C1F7DDD05009BF019 /* 更多.png in Resources */,
+				F2A6056D1F7DDD05009BF019 /* 服务.png in Resources */,
+				F2A6056E1F7DDD05009BF019 /* 淘宝.png in Resources */,
+				F2A6056F1F7DDD05009BF019 /* 淘票票.png in Resources */,
+				F2A605701F7DDD05009BF019 /* 滴滴出行.png in Resources */,
+				F2A605711F7DDD05009BF019 /* 股票.png in Resources */,
+				F2A605721F7DDD05009BF019 /* 芝麻信用.png in Resources */,
+				F2A605731F7DDD05009BF019 /* 蚂蚁森林.png in Resources */,
+				F2A605741F7DDD05009BF019 /* 转账.png in Resources */,
+				F2A605751F7DDD05009BF019 /* 运动.png in Resources */,
+				F2A605761F7DDD05009BF019 /* 饿了么.png in Resources */,
+				F2A605651F7DDCFC009BF019 /* AA收款.png in Resources */,
+				F2A6054C1F7D58A3009BF019 /* zh_add.png in Resources */,
+				F2A6054D1F7D58A3009BF019 /* zh_delete.png in Resources */,
+				F2A6054E1F7D58A3009BF019 /* zh_done.png in Resources */,
+				F2A6050C1F7D0B72009BF019 /* LaunchScreen.storyboard in Resources */,
+				F2A605091F7D0B72009BF019 /* Assets.xcassets in Resources */,
+				F2A605071F7D0B72009BF019 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A605121F7D0B72009BF019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A6051D1F7D0B72009BF019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2A604F81F7D0B71009BF019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F22B37491F8CBBA800009C81 /* LewReorderableLayout.h in Sources */,
+				F22B374A1F8CBBA800009C81 /* LewReorderableLayout.m in Sources */,
+				F22B374B1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.h in Sources */,
+				F22B374C1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.m in Sources */,
+				F22B374D1F8CBBA800009C81 /* zhRemovableEditModel.h in Sources */,
+				F22B374E1F8CBBA800009C81 /* zhRemovableEditModel.m in Sources */,
+				F22B374F1F8CBBA800009C81 /* zhRemovableEditViewController.h in Sources */,
+				F22B37501F8CBBA800009C81 /* zhRemovableEditViewController.m in Sources */,
+				F2A6053F1F7D4383009BF019 /* MyModel.m in Sources */,
+				F2A605041F7D0B72009BF019 /* ViewController.m in Sources */,
+				F2A6050F1F7D0B72009BF019 /* main.m in Sources */,
+				F2A605511F7DC78F009BF019 /* MyViewController.m in Sources */,
+				F2A605011F7D0B72009BF019 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A605101F7D0B72009BF019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A605191F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2A6051B1F7D0B72009BF019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A605241F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2A605161F7D0B72009BF019 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2A604FB1F7D0B71009BF019 /* zhRemovableEditViewController */;
+			targetProxy = F2A605151F7D0B72009BF019 /* PBXContainerItemProxy */;
+		};
+		F2A605211F7D0B72009BF019 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2A604FB1F7D0B71009BF019 /* zhRemovableEditViewController */;
+			targetProxy = F2A605201F7D0B72009BF019 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F2A605051F7D0B72009BF019 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2A605061F7D0B72009BF019 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F2A6050A1F7D0B72009BF019 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2A6050B1F7D0B72009BF019 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2A605261F7D0B72009BF019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F2A605271F7D0B72009BF019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2A605291F7D0B72009BF019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 854W7RF9GY;
+				INFOPLIST_FILE = zhRemovableEditViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2A6052A1F7D0B72009BF019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 854W7RF9GY;
+				INFOPLIST_FILE = zhRemovableEditViewController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F2A6052C1F7D0B72009BF019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zhRemovableEditViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zhRemovableEditViewController.app/zhRemovableEditViewController";
+			};
+			name = Debug;
+		};
+		F2A6052D1F7D0B72009BF019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zhRemovableEditViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zhRemovableEditViewController.app/zhRemovableEditViewController";
+			};
+			name = Release;
+		};
+		F2A6052F1F7D0B72009BF019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zhRemovableEditViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = zhRemovableEditViewController;
+			};
+			name = Debug;
+		};
+		F2A605301F7D0B72009BF019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zhRemovableEditViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = zhRemovableEditViewController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2A604F71F7D0B71009BF019 /* Build configuration list for PBXProject "zhRemovableEditViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A605261F7D0B72009BF019 /* Debug */,
+				F2A605271F7D0B72009BF019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2A605281F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A605291F7D0B72009BF019 /* Debug */,
+				F2A6052A1F7D0B72009BF019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2A6052B1F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A6052C1F7D0B72009BF019 /* Debug */,
+				F2A6052D1F7D0B72009BF019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2A6052E1F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A6052F1F7D0B72009BF019 /* Debug */,
+				F2A605301F7D0B72009BF019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F2A604F41F7D0B71009BF019 /* Project object */;
+}
