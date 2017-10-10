@@ -1,5 +1,5 @@
 //
-//  LewReorderableLayout.h
+//  zhRemovableEditLayout.h
 //  zhRemovableEditViewController
 //
 //  Created by zhanghao on 2017/9/28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LewReorderableLayoutDataSource <UICollectionViewDataSource>
+@protocol zhRemovableEditLayoutDataSource <UICollectionViewDataSource>
 
 @required
 
@@ -29,7 +29,7 @@
 
 @end
 
-@protocol LewReorderableLayoutDelegate <UICollectionViewDelegateFlowLayout>
+@protocol zhRemovableEditLayoutDelegate <UICollectionViewDelegateFlowLayout>
 
 @optional
 
@@ -60,10 +60,10 @@
 @end
 
 
-@interface LewReorderableLayout : UICollectionViewFlowLayout<UIGestureRecognizerDelegate>
+@interface zhRemovableEditLayout : UICollectionViewFlowLayout<UIGestureRecognizerDelegate>
 
-@property (nonatomic, weak)id<LewReorderableLayoutDelegate> delegate;
-@property (nonatomic, weak)id<LewReorderableLayoutDataSource> dataSource;
+@property (nonatomic, weak)id<zhRemovableEditLayoutDelegate> delegate;
+@property (nonatomic, weak)id<zhRemovableEditLayoutDataSource> dataSource;
 @property (nonatomic, strong)UILongPressGestureRecognizer *longPress;
 @property (nonatomic, strong)UIPanGestureRecognizer *panGesture;
 

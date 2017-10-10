@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F22B37491F8CBBA800009C81 /* LewReorderableLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37421F8CBB9200009C81 /* LewReorderableLayout.h */; };
-		F22B374A1F8CBBA800009C81 /* LewReorderableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37481F8CBB9200009C81 /* LewReorderableLayout.m */; };
+		F22B37491F8CBBA800009C81 /* zhRemovableEditLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37421F8CBB9200009C81 /* zhRemovableEditLayout.h */; };
+		F22B374A1F8CBBA800009C81 /* zhRemovableEditLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37481F8CBB9200009C81 /* zhRemovableEditLayout.m */; };
 		F22B374B1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */; };
 		F22B374C1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */; };
 		F22B374D1F8CBBA800009C81 /* zhRemovableEditModel.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */; };
@@ -68,13 +68,13 @@
 
 /* Begin PBXFileReference section */
 		F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditModel.h; sourceTree = "<group>"; };
-		F22B37421F8CBB9200009C81 /* LewReorderableLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LewReorderableLayout.h; sourceTree = "<group>"; };
+		F22B37421F8CBB9200009C81 /* zhRemovableEditLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditLayout.h; sourceTree = "<group>"; };
 		F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditCollectionViewCell.m; sourceTree = "<group>"; };
 		F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditCollectionViewCell.h; sourceTree = "<group>"; };
 		F22B37451F8CBB9200009C81 /* zhRemovableEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditViewController.m; sourceTree = "<group>"; };
 		F22B37461F8CBB9200009C81 /* zhRemovableEditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditModel.m; sourceTree = "<group>"; };
 		F22B37471F8CBB9200009C81 /* zhRemovableEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditViewController.h; sourceTree = "<group>"; };
-		F22B37481F8CBB9200009C81 /* LewReorderableLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LewReorderableLayout.m; sourceTree = "<group>"; };
+		F22B37481F8CBB9200009C81 /* zhRemovableEditLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditLayout.m; sourceTree = "<group>"; };
 		F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhRemovableEditViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A604FF1F7D0B72009BF019 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2A605001F7D0B72009BF019 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 		F22B37301F8C902000009C81 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F22B37421F8CBB9200009C81 /* LewReorderableLayout.h */,
-				F22B37481F8CBB9200009C81 /* LewReorderableLayout.m */,
+				F22B37421F8CBB9200009C81 /* zhRemovableEditLayout.h */,
+				F22B37481F8CBB9200009C81 /* zhRemovableEditLayout.m */,
 				F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */,
 				F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */,
 				F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */,
@@ -411,8 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F22B37491F8CBBA800009C81 /* LewReorderableLayout.h in Sources */,
-				F22B374A1F8CBBA800009C81 /* LewReorderableLayout.m in Sources */,
+				F22B37491F8CBBA800009C81 /* zhRemovableEditLayout.h in Sources */,
+				F22B374A1F8CBBA800009C81 /* zhRemovableEditLayout.m in Sources */,
 				F22B374B1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.h in Sources */,
 				F22B374C1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.m in Sources */,
 				F22B374D1F8CBBA800009C81 /* zhRemovableEditModel.h in Sources */,

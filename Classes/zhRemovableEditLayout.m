@@ -1,22 +1,22 @@
 //
-//  LewReorderableLayout.m
+//  zhRemovableEditLayout.m
 //  zhRemovableEditViewController
 //
 //  Created by zhanghao on 2017/9/28.
 //  Copyright © 2017年 snail-z. All rights reserved.
 //
 
-#import "LewReorderableLayout.h"
+#import "zhRemovableEditLayout.h"
 
 #import <QuartzCore/QuartzCore.h>
 
-typedef NS_ENUM(NSUInteger, LewScrollDirction) {
-    LewScrollDirctionStay,
-    LewScrollDirctionToTop,
-    LewScrollDirctionToEnd,
+typedef NS_ENUM(NSUInteger, zhScrollDirction) {
+    zhScrollDirctionStay,
+    zhScrollDirctionToTop,
+    zhScrollDirctionToEnd,
 };
 
-@interface LewCellFakeView :UIView
+@interface zhCellFakeView :UIView
 @property (nonatomic, weak)UICollectionViewCell *cell;
 @property (nonatomic, strong)UIImageView *cellFakeImageView;
 @property (nonatomic, strong)UIImageView *cellFakeHightedView;
@@ -31,12 +31,12 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
 @end
 
 
-@interface LewReorderableLayout ()
-@property (nonatomic) LewScrollDirction continuousScrollDirection;
+@interface zhRemovableEditLayout ()
+@property (nonatomic) zhScrollDirction continuousScrollDirection;
 @property (nonatomic, assign)CGFloat scrollValue;
 @property (nonatomic, strong)CADisplayLink *displayLink;
 
-@property (nonatomic, strong)LewCellFakeView *cellFakeView;
+@property (nonatomic, strong)zhCellFakeView *cellFakeView;
 @property (nonatomic, assign)CGPoint panTranslation;
 @property (nonatomic, assign)CGPoint fakeCellCenter;
 @property (nonatomic, assign)UIEdgeInsets trigerInsets;
@@ -57,12 +57,12 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
 
 @end
 
-@implementation LewReorderableLayout
+@implementation zhRemovableEditLayout
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _continuousScrollDirection = LewScrollDirctionStay;
+        _continuousScrollDirection = zhScrollDirctionStay;
         _trigerInsets = UIEdgeInsetsMake(100, 100, 100, 100);
         _scrollSpeedValue = 10.0f;
         [self configureObserver];
@@ -73,7 +73,7 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
 - (instancetype)init{
     self = [super init];
     if (self) {
-        _continuousScrollDirection = LewScrollDirctionStay;
+        _continuousScrollDirection = zhScrollDirctionStay;
         _trigerInsets = UIEdgeInsetsMake(100, 100, 100, 100);
         _scrollSpeedValue = 10.0f;
         [self configureObserver];
@@ -119,7 +119,7 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
 }
 
 - (void)invalidateDisplayLink{
-    _continuousScrollDirection = LewScrollDirctionStay;
+    _continuousScrollDirection = zhScrollDirctionStay;
     [_displayLink invalidate];
     _displayLink = nil;
 }
@@ -139,11 +139,11 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
     
     if(fakeCellTopEdge <= offset + paddingTop + trigerInsetTop){
         
-        self.continuousScrollDirection = LewScrollDirctionToTop;
+        self.continuousScrollDirection = zhScrollDirctionToTop;
         [self setUpDisplayLink];
     }else if(fakeCellEndEdge >= offset + length - paddingEnd - trigerInsetEnd) {
         
-        self.continuousScrollDirection = LewScrollDirctionToEnd;
+        self.continuousScrollDirection = zhScrollDirctionToEnd;
         [self setUpDisplayLink];
     }else {
         [self invalidateDisplayLink];
@@ -254,11 +254,11 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
     
     CGFloat percentage = 0.0;
     
-    if (self.continuousScrollDirection == LewScrollDirctionToTop) {
+    if (self.continuousScrollDirection == zhScrollDirctionToTop) {
         if (self.fakeCellTopEdge) {
             percentage = 1.0 - ((self.fakeCellTopEdge - (offset + paddingTop)) / trigerInsetTop);
         }
-    }else if (self.continuousScrollDirection == LewScrollDirctionToEnd){
+    }else if (self.continuousScrollDirection == zhScrollDirctionToEnd){
         if (self.fakeCellEndEdge) {
             percentage = 1.0 - (((insetTop + offsetEnd - paddingEnd) - (self.fakeCellEndEdge + insetTop)) / trigerInsetEnd);
         }
@@ -324,7 +324,7 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
             
             UICollectionViewCell *currentCell = [self.collectionView cellForItemAtIndexPath:indexPath];
             
-            _cellFakeView = [[LewCellFakeView alloc]initWithCell:currentCell];
+            _cellFakeView = [[zhCellFakeView alloc]initWithCell:currentCell];
             _cellFakeView.indexPath = indexPath;
             _cellFakeView.originalCenter = currentCell.center;
             _cellFakeView.cellFrame = [self layoutAttributesForItemAtIndexPath:indexPath].frame;
@@ -478,15 +478,15 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
 - (CGFloat)scrollValueWithSpeed:(CGFloat)speed andPercentage:(CGFloat)percentage{
     CGFloat value = 0.0f;
     switch (_continuousScrollDirection) {
-        case LewScrollDirctionStay: {
+        case zhScrollDirctionStay: {
             return 0.0f;
             break;
         }
-        case LewScrollDirctionToTop: {
+        case zhScrollDirctionToTop: {
             value = -speed;
             break;
         }
-        case LewScrollDirctionToEnd: {
+        case zhScrollDirctionToEnd: {
             value = speed;
             break;
         }
@@ -556,20 +556,20 @@ typedef NS_ENUM(NSUInteger, LewScrollDirction) {
 
 #pragma mark - setter
 
-- (void)setDelegate:(id<LewReorderableLayoutDelegate>)delegate{
+- (void)setDelegate:(id<zhRemovableEditLayoutDelegate>)delegate{
     _delegate = delegate;
     self.collectionView.delegate = delegate;
 }
 
-- (void)setDataSource:(id<LewReorderableLayoutDataSource>)dataSource{
+- (void)setDataSource:(id<zhRemovableEditLayoutDataSource>)dataSource{
     _dataSource = dataSource;
     self.collectionView.dataSource = dataSource;
 }
 @end
 
-#pragma mark - LewCellFakeView implementation
+#pragma mark - zhCellFakeView implementation
 
-@implementation LewCellFakeView
+@implementation zhCellFakeView
 
 - (instancetype)initWithCell:(UICollectionViewCell *)cell{
     self = [super initWithFrame:cell.frame];

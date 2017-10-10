@@ -7,7 +7,7 @@
 //
 
 #import "zhRemovableEditViewController.h"
-#import "LewReorderableLayout.h"
+#import "zhRemovableEditLayout.h"
 
 @implementation zhRemovableEditViewLayout
 
@@ -28,7 +28,7 @@
 
 @end
 
-@interface zhRemovableEditViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LewReorderableLayoutDelegate, LewReorderableLayoutDataSource, zhRemovableEditCollectionViewCellDelegate>
+@interface zhRemovableEditViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, zhRemovableEditLayoutDelegate, zhRemovableEditLayoutDataSource, zhRemovableEditCollectionViewCellDelegate>
 
 @property (nonatomic, assign, readonly) BOOL inMaxing;
 @property (nonatomic, assign, readonly) BOOL isHudShowing;
@@ -62,7 +62,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 }
 
 - (void)commonInitialization {
-    LewReorderableLayout *layout = [[LewReorderableLayout alloc] init];
+    zhRemovableEditLayout *layout = [[zhRemovableEditLayout alloc] init];
     layout.delegate = self;
     layout.dataSource = self;
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
@@ -154,7 +154,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
-#pragma mark - LewReorderableLayoutDelegate
+#pragma mark - zhRemovableEditLayoutDelegate
 
 //  某个 IndexPath 的cell 能否移动
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
