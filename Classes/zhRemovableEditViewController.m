@@ -56,6 +56,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 - (void)zh_commonConfiguration {
     self.reLayout = [zhRemovableEditViewLayout defaultLayout];
+    self.reImages = [zhRemovableEditSetImages defaultImages];
     self.showReservezone = NO;
     self.fixedCount = 0;
     self.maxCount = 0;
@@ -132,6 +133,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     zhRemovableEditCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:zhRemovableEditCellIdentify forIndexPath:indexPath];
     cell.delegate = self;
+    cell.images = self.reImages;
     cell.model = self.dataArray[indexPath.section].itemModels[indexPath.item];
     return cell;
 }

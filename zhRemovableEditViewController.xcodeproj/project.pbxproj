@@ -15,6 +15,10 @@
 		F22B374E1F8CBBA800009C81 /* zhRemovableEditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37461F8CBB9200009C81 /* zhRemovableEditModel.m */; };
 		F22B374F1F8CBBA800009C81 /* zhRemovableEditViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37471F8CBB9200009C81 /* zhRemovableEditViewController.h */; };
 		F22B37501F8CBBA800009C81 /* zhRemovableEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37451F8CBB9200009C81 /* zhRemovableEditViewController.m */; };
+		F22B37651F8DF66400009C81 /* zh_REBadgeAdd.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37611F8DF65200009C81 /* zh_REBadgeAdd.png */; };
+		F22B37661F8DF66400009C81 /* zh_REBadgeDelete.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37621F8DF65200009C81 /* zh_REBadgeDelete.png */; };
+		F22B37671F8DF66400009C81 /* zh_REBadgeDone.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37631F8DF65200009C81 /* zh_REBadgeDone.png */; };
+		F22B37681F8DF66400009C81 /* zh_REImaginarylineBox.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37641F8DF65200009C81 /* zh_REImaginarylineBox.png */; };
 		F2A605011F7D0B72009BF019 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605001F7D0B72009BF019 /* AppDelegate.m */; };
 		F2A605041F7D0B72009BF019 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605031F7D0B72009BF019 /* ViewController.m */; };
 		F2A605071F7D0B72009BF019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A605051F7D0B72009BF019 /* Main.storyboard */; };
@@ -24,9 +28,6 @@
 		F2A605191F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605181F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m */; };
 		F2A605241F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605231F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m */; };
 		F2A6053F1F7D4383009BF019 /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A6053E1F7D4383009BF019 /* MyModel.m */; };
-		F2A6054C1F7D58A3009BF019 /* zh_add.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605491F7D588D009BF019 /* zh_add.png */; };
-		F2A6054D1F7D58A3009BF019 /* zh_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6054A1F7D588D009BF019 /* zh_delete.png */; };
-		F2A6054E1F7D58A3009BF019 /* zh_done.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6054B1F7D588D009BF019 /* zh_done.png */; };
 		F2A605511F7DC78F009BF019 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605501F7DC78F009BF019 /* MyViewController.m */; };
 		F2A605651F7DDCFC009BF019 /* AA收款.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605531F7DDCEB009BF019 /* AA收款.png */; };
 		F2A605661F7DDD05009BF019 /* 体育服务.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605541F7DDCEB009BF019 /* 体育服务.png */; };
@@ -46,7 +47,6 @@
 		F2A605741F7DDD05009BF019 /* 转账.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605621F7DDCEB009BF019 /* 转账.png */; };
 		F2A605751F7DDD05009BF019 /* 运动.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605631F7DDCEB009BF019 /* 运动.png */; };
 		F2A605761F7DDD05009BF019 /* 饿了么.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605641F7DDCEB009BF019 /* 饿了么.png */; };
-		F2A6057B1F7E3321009BF019 /* 虚线选框.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A6057A1F7E3318009BF019 /* 虚线选框.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +75,10 @@
 		F22B37461F8CBB9200009C81 /* zhRemovableEditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditModel.m; sourceTree = "<group>"; };
 		F22B37471F8CBB9200009C81 /* zhRemovableEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditViewController.h; sourceTree = "<group>"; };
 		F22B37481F8CBB9200009C81 /* zhRemovableEditLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditLayout.m; sourceTree = "<group>"; };
+		F22B37611F8DF65200009C81 /* zh_REBadgeAdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_REBadgeAdd.png; sourceTree = "<group>"; };
+		F22B37621F8DF65200009C81 /* zh_REBadgeDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_REBadgeDelete.png; sourceTree = "<group>"; };
+		F22B37631F8DF65200009C81 /* zh_REBadgeDone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_REBadgeDone.png; sourceTree = "<group>"; };
+		F22B37641F8DF65200009C81 /* zh_REImaginarylineBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_REImaginarylineBox.png; sourceTree = "<group>"; };
 		F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhRemovableEditViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A604FF1F7D0B72009BF019 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2A605001F7D0B72009BF019 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -93,9 +97,6 @@
 		F2A605251F7D0B72009BF019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2A6053D1F7D4383009BF019 /* MyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
 		F2A6053E1F7D4383009BF019 /* MyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
-		F2A605491F7D588D009BF019 /* zh_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_add.png; sourceTree = "<group>"; };
-		F2A6054A1F7D588D009BF019 /* zh_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_delete.png; sourceTree = "<group>"; };
-		F2A6054B1F7D588D009BF019 /* zh_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_done.png; sourceTree = "<group>"; };
 		F2A6054F1F7DC78F009BF019 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		F2A605501F7DC78F009BF019 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		F2A605531F7DDCEB009BF019 /* AA收款.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AA收款.png"; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		F2A605621F7DDCEB009BF019 /* 转账.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "转账.png"; sourceTree = "<group>"; };
 		F2A605631F7DDCEB009BF019 /* 运动.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运动.png"; sourceTree = "<group>"; };
 		F2A605641F7DDCEB009BF019 /* 饿了么.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "饿了么.png"; sourceTree = "<group>"; };
-		F2A6057A1F7E3318009BF019 /* 虚线选框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "虚线选框.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +157,17 @@
 				F22B37451F8CBB9200009C81 /* zhRemovableEditViewController.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		F22B37601F8DF65200009C81 /* reImages */ = {
+			isa = PBXGroup;
+			children = (
+				F22B37611F8DF65200009C81 /* zh_REBadgeAdd.png */,
+				F22B37621F8DF65200009C81 /* zh_REBadgeDelete.png */,
+				F22B37631F8DF65200009C81 /* zh_REBadgeDone.png */,
+				F22B37641F8DF65200009C81 /* zh_REImaginarylineBox.png */,
+			);
+			path = reImages;
 			sourceTree = "<group>";
 		};
 		F2A604F31F7D0B71009BF019 = {
@@ -222,10 +233,8 @@
 		F2A605481F7D588D009BF019 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F22B37601F8DF65200009C81 /* reImages */,
 				F2A605521F7DDCEB009BF019 /* icon */,
-				F2A605491F7D588D009BF019 /* zh_add.png */,
-				F2A6054A1F7D588D009BF019 /* zh_delete.png */,
-				F2A6054B1F7D588D009BF019 /* zh_done.png */,
 			);
 			path = Images;
 			sourceTree = SOURCE_ROOT;
@@ -251,7 +260,6 @@
 				F2A605621F7DDCEB009BF019 /* 转账.png */,
 				F2A605631F7DDCEB009BF019 /* 运动.png */,
 				F2A605641F7DDCEB009BF019 /* 饿了么.png */,
-				F2A6057A1F7E3318009BF019 /* 虚线选框.png */,
 			);
 			path = icon;
 			sourceTree = "<group>";
@@ -362,7 +370,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2A6057B1F7E3321009BF019 /* 虚线选框.png in Resources */,
 				F2A605661F7DDD05009BF019 /* 体育服务.png in Resources */,
 				F2A605671F7DDD05009BF019 /* 共享单车.png in Resources */,
 				F2A605681F7DDD05009BF019 /* 到位.png in Resources */,
@@ -381,9 +388,6 @@
 				F2A605751F7DDD05009BF019 /* 运动.png in Resources */,
 				F2A605761F7DDD05009BF019 /* 饿了么.png in Resources */,
 				F2A605651F7DDCFC009BF019 /* AA收款.png in Resources */,
-				F2A6054C1F7D58A3009BF019 /* zh_add.png in Resources */,
-				F2A6054D1F7D58A3009BF019 /* zh_delete.png in Resources */,
-				F2A6054E1F7D58A3009BF019 /* zh_done.png in Resources */,
 				F2A6050C1F7D0B72009BF019 /* LaunchScreen.storyboard in Resources */,
 				F2A605091F7D0B72009BF019 /* Assets.xcassets in Resources */,
 				F2A605071F7D0B72009BF019 /* Main.storyboard in Resources */,
@@ -411,6 +415,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22B37651F8DF66400009C81 /* zh_REBadgeAdd.png in Sources */,
+				F22B37661F8DF66400009C81 /* zh_REBadgeDelete.png in Sources */,
+				F22B37671F8DF66400009C81 /* zh_REBadgeDone.png in Sources */,
+				F22B37681F8DF66400009C81 /* zh_REImaginarylineBox.png in Sources */,
 				F22B37491F8CBBA800009C81 /* zhRemovableEditLayout.h in Sources */,
 				F22B374A1F8CBBA800009C81 /* zhRemovableEditLayout.m in Sources */,
 				F22B374B1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.h in Sources */,
@@ -589,7 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 854W7RF9GY;
 				INFOPLIST_FILE = zhRemovableEditViewController/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,7 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 854W7RF9GY;
 				INFOPLIST_FILE = zhRemovableEditViewController/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhanghao.zhRemovableEditViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";

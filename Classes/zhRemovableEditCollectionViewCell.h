@@ -10,11 +10,8 @@
 #import "zhRemovableEditModel.h"
 
 static inline CGFloat zh_fontSizeFit(CGFloat value) {
-    if ([UIScreen mainScreen].bounds.size.width < 375.0f) {
-        return value * 0.9;
-    } else if ([UIScreen mainScreen].bounds.size.width > 375.0f) {
-        return value * 1.1;
-    }
+    if ([UIScreen mainScreen].bounds.size.width < 375.0f) return value * 0.9;
+    if ([UIScreen mainScreen].bounds.size.width > 375.0f) return value * 1.1;
     return value;
 }
 
@@ -25,6 +22,16 @@ static inline CGFloat zh_sizeFitW(CGFloat value) {
 static inline CGFloat zh_sizeFitH(CGFloat value) {
     return value * ([UIScreen mainScreen].bounds.size.height / 667.0f);
 }
+
+@interface zhRemovableEditSetImages : NSObject
+
++ (instancetype)defaultImages;
+@property (nonatomic, strong) UIImage *reservezoneImage; // 设置预留区域虚线边框图片
+@property (nonatomic, strong) UIImage *badgePlusImage;  // 加状态图片
+@property (nonatomic, strong) UIImage *badgeMinusImage; // 减状态图片
+@property (nonatomic, strong) UIImage *badgeGrayImage;  // 灰状态图片
+
+@end
 
 @class zhRemovableEditCollectionViewCell;
 @protocol zhRemovableEditCollectionViewCellDelegate <NSObject>
@@ -43,6 +50,7 @@ static inline CGFloat zh_sizeFitH(CGFloat value) {
 @property (nonatomic, strong, readonly) UIImageView *reservezoneImageView; // default is hidden
 
 @property (nonatomic, weak) id <zhRemovableEditCollectionViewCellDelegate> delegate;
+@property (nonatomic, strong) zhRemovableEditSetImages *images;
 @property (nonatomic, strong) zhRemovableEditItemModel *model;
 
 @end

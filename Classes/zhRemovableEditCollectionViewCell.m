@@ -8,6 +8,19 @@
 
 #import "zhRemovableEditCollectionViewCell.h"
 
+@implementation zhRemovableEditSetImages
+
++ (instancetype)defaultImages {
+    zhRemovableEditSetImages *images = [[zhRemovableEditSetImages alloc] init];
+    images.reservezoneImage = [UIImage imageNamed:@"zh_REImaginarylineBox"];
+    images.badgePlusImage = [UIImage imageNamed:@"zh_REBadgeAdd"];
+    images.badgeMinusImage = [UIImage imageNamed:@"zh_REBadgeDelete"];
+    images.badgeGrayImage = [UIImage imageNamed:@"zh_REBadgeDone"];
+    return images;
+}
+
+@end
+
 @implementation zhRemovableEditCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -31,7 +44,6 @@
         _reservezoneImageView = [[UIImageView alloc] init];
         _reservezoneImageView.backgroundColor = [UIColor whiteColor];
         _reservezoneImageView.userInteractionEnabled = NO;
-        _reservezoneImageView.image = [UIImage imageNamed:@"虚线选框"];
         _reservezoneImageView.hidden = YES;
         [self.contentView addSubview:_reservezoneImageView];
     }
@@ -72,11 +84,23 @@
     }
 }
 
+- (void)setImages:(zhRemovableEditSetImages *)images {
+    _images = images;
+    _reservezoneImageView.image = images.reservezoneImage;
+}
+
 - (void)setModel:(zhRemovableEditItemModel *)model {
     _model = model;
     
     _titleLabel.text = model.title;
-    _imageView.image = model.image;
+    
+    if (model.imageUrl) {
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.imageUrl]];
+        _imageView.image = [UIImage imageWithData: imageData];
+    } else {
+        _imageView.image = model.image;
+    }
+    
     [self setBadgeImageByRemovableEditState:model.badgeState];
     
     [self setUsingReservezone:[[model valueForKey:@"zh_usingReservezone"] boolValue]];
@@ -87,13 +111,13 @@
 - (void)setBadgeImageByRemovableEditState:(zhRemovableEditBadgeState)state {
     switch (state) {
         case zhRemovableEditBadgeStatePlus:
-            _badgeImageView.image = [UIImage imageNamed:@"zh_add"];
+            _badgeImageView.image = _images.badgePlusImage;
             break;
         case zhRemovableEditBadgeStateMinus:
-            _badgeImageView.image = [UIImage imageNamed:@"zh_delete"];
+            _badgeImageView.image = _images.badgeMinusImage;
             break;
         case zhRemovableEditBadgeStateGray:
-            _badgeImageView.image = [UIImage imageNamed:@"zh_done"];
+            _badgeImageView.image = _images.badgeGrayImage;
             break;
         case zhRemovableEditBadgeStateNone:
             _badgeImageView.image = nil;

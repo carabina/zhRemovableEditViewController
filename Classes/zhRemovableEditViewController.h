@@ -46,7 +46,10 @@
 /// 布局信息
 @property (nonatomic, strong) zhRemovableEditViewLayout *reLayout;
 
-/// 是否显示预留区
+/// 自定义图片信息
+@property (nonatomic, strong) zhRemovableEditSetImages *reImages;
+
+/// 是否显示预留区域
 @property (nonatomic, assign) BOOL showReservezone;
 
 /// 设置可拖动区域中前fixedCount个不可移动 (默认为0不限制)
@@ -58,7 +61,7 @@
 /// 重写该方法用于自定义设置
 - (void)zh_commonConfiguration;
 
-/// 重写该方法用于加载数据源
+/// 重写该方法用于设置数据源
 - (void)zh_loadData;
 
 @end

@@ -11,8 +11,8 @@
 @interface zhRemovableEditItemModel ()
 
 @property (nonatomic, assign) NSInteger markId;
-@property (nonatomic, assign) BOOL zh_usingReservezone; // if YES，将使用预留区
-@property (nonatomic, assign) BOOL zh_isInvisible; // 是否隐藏当前视图(隐藏当前cell)
+@property (nonatomic, assign) BOOL zh_usingReservezone;
+@property (nonatomic, assign) BOOL zh_isInvisible;
 
 @end
 

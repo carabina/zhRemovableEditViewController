@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
-    zhRemovableEditBadgeStatePlus = 0,
-    zhRemovableEditBadgeStateMinus,
-    zhRemovableEditBadgeStateGray,
-    zhRemovableEditBadgeStateNone
+    zhRemovableEditBadgeStatePlus = 0,  // 可加状态
+    zhRemovableEditBadgeStateMinus,     // 可减状态
+    zhRemovableEditBadgeStateGray,      // 灰色状态(不可操作)
+    zhRemovableEditBadgeStateNone       // 空状态(无任何标记)
 };
 
 @interface zhRemovableEditItemModel : NSObject <NSCopying>
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
 @property (nonatomic, strong) UIImage *image;
 
 /// 图片imageUrl (如果imageUrl为空，则使用image显示)
-@property (nonatomic, strong) UIImage *imageUrl;
+@property (nonatomic, strong) NSString *imageUrl;
 
 /// 用于标记item处于哪种编辑状态
 @property (nonatomic, assign) zhRemovableEditBadgeState badgeState;
