@@ -52,6 +52,9 @@
 /// 是否显示预留区域
 @property (nonatomic, assign) BOOL showReservezone;
 
+/// 使用弹性动画
+@property (nonatomic, assign) BOOL useSpringAnimation;
+
 /// 设置可拖动区域中前fixedCount个不可移动 (默认为0不限制)
 @property (nonatomic, assign) NSInteger fixedCount;
 

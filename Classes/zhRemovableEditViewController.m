@@ -58,6 +58,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     self.reLayout = [zhRemovableEditViewLayout defaultLayout];
     self.reImages = [zhRemovableEditSetImages defaultImages];
     self.showReservezone = NO;
+    self.useSpringAnimation = NO;
     self.fixedCount = 0;
     self.maxCount = 0;
 }
@@ -113,7 +114,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     return CGSizeMake(floor(itemWidth), floor(itemWidth) / self.reLayout.sizeScale);
 }
 
-// 组头的size，必须配合viewForSupplementaryElementOfKind一起设置
+// 组头的size须配合viewForSupplementaryElementOfKind一起设置
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(collectionView.frame.size.width, self.reLayout.sectionHeight);
 }
@@ -160,18 +161,16 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 //  某个 IndexPath 的cell 能否移动
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (0 == indexPath.section) {
-        if (indexPath.row < self.fixedCount) {
+    if (0 != indexPath.section) return NO;
+    
+    if (indexPath.row < self.fixedCount) return NO;
+    
+    if (_showReservezone && !_inMaxing) {
+        if (indexPath.item == self.dataArray[indexPath.section].itemModels.count - 1) {
             return NO;
         }
-        if (_showReservezone && !_inMaxing) {
-            if (indexPath.item == self.dataArray[indexPath.section].itemModels.count - 1) {
-                return NO;
-            }
-        }
-        return YES;
     }
-    return NO;
+    return YES;
 }
 
 // 某个 IndexPath 能否移动过去
@@ -208,20 +207,16 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     void (^cellUpdates)(NSIndexPath *) = ^(NSIndexPath *indexPath) {
         [self.collectionView performBatchUpdates:^{
             [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
-        } completion:^(BOOL finished) {
             if (_showReservezone && _inMaxing) {
                 [firstDataArray addObject:[self reserveModel]];
                 NSIndexPath *insertIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
                 [self.collectionView insertItemsAtIndexPaths:@[insertIndexPath]];
+                _inMaxing = NO;
             }
-            _inMaxing = NO;
-        }];
+        } completion:NULL];
     };
     
-    [UIView animateWithDuration:0.25 animations:^{
-        cell.transform = CGAffineTransformMakeScale(0.1, 0.1);
-        cell.alpha = 0;
-    } completion:^(BOOL finished) {
+    void (^finishedTransform)(void) = ^() {
         [UIView animateWithDuration:0.25 animations:^{
             [self.collectionView performBatchUpdates:^{
                 NSIndexPath *currentIndexPath = [self.collectionView indexPathForCell:cell];
@@ -242,7 +237,27 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
                 }
             }];
         }];
-    }]; 
+    };
+    
+    if (self.useSpringAnimation) {
+        [UIView animateWithDuration:0.25 animations:^{
+            cell.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.25 animations:^{
+                cell.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                cell.alpha = 0;
+            } completion:^(BOOL finished) {
+                finishedTransform();
+            }];
+        }];
+    } else {
+        [UIView animateWithDuration:0.25 animations:^{
+            cell.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            cell.alpha = 0;
+        } completion:^(BOOL finished) {
+            finishedTransform();
+        }];
+    }
 }
 
 - (void)zh_addItemWithRemovableEditCollectionViewCell:(zhRemovableEditCollectionViewCell *)cell {
@@ -280,18 +295,21 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
             cell.transform = CGAffineTransformMakeScale(0.f, 0.f);
             cell.alpha = 0;
             cell.hidden = NO;
-            [UIView animateWithDuration:0.25 delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
-                cell.transform = CGAffineTransformIdentity;
-                cell.alpha = 1;
-            } completion:^(BOOL finished) {
-                [newItemModel setValue:@(NO) forKey:@"zh_isInvisible"];
-            }];
-//            [UIView animateWithDuration:0.75 delay:delay usingSpringWithDamping:0.55 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
-//                cell.transform = CGAffineTransformIdentity;
-//                cell.alpha = 1;
-//            } completion:^(BOOL finished) {
-//                [newItemModel setValue:@(NO) forKey:@"zh_isInvisible"];
-//            }];
+            if (self.useSpringAnimation) {
+                [UIView animateWithDuration:0.75 delay:delay usingSpringWithDamping:0.55 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
+                    cell.transform = CGAffineTransformIdentity;
+                    cell.alpha = 1;
+                } completion:^(BOOL finished) {
+                    [newItemModel setValue:@(NO) forKey:@"zh_isInvisible"];
+                }];
+            } else {
+                [UIView animateWithDuration:0.25 delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
+                    cell.transform = CGAffineTransformIdentity;
+                    cell.alpha = 1;
+                } completion:^(BOOL finished) {
+                    [newItemModel setValue:@(NO) forKey:@"zh_isInvisible"];
+                }];
+            }
         }
     };
     

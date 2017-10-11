@@ -52,11 +52,9 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     CGFloat centerX = self.contentView.bounds.size.width / 2;
     
     CGFloat imgTop = zh_sizeFitH(7);
-    
     CGFloat imgSideLength = zh_sizeFitW(self.contentView.bounds.size.width / 2.5);
     _imageView.frame = CGRectMake(0, imgTop, imgSideLength, imgSideLength);
     _imageView.center = CGPointMake(centerX, _imageView.center.y);
@@ -162,7 +160,6 @@
 
 - (void)setSectionModel:(zhRemovableEditSectionModel *)sectionModel {
     _sectionModel = sectionModel;
-    
     if (sectionModel.attributedTitle) {
         _titleLabel.attributedText = sectionModel.attributedTitle;
     } else {
