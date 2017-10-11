@@ -21,6 +21,7 @@
 
 - (void)zh_commonConfiguration {
     [super zh_commonConfiguration];
+    
     self.showReservezone = YES;
     self.useSpringAnimation = YES;
     self.fixedCount = 4;
