@@ -11,13 +11,16 @@
 
 @implementation MyItemModel
 
+- (NSDictionary<NSString *,NSString *> *)zh_renameKeys {
+    return @{@"title" : @"myTitle"};
+}
+
 @end
 
 @implementation MyGroupModel
 
-+ (NSDictionary *)mj_objectClassInArray
-{
-    return @{@"groupItems" : [MyItemModel class]};
+- (Class)zh_groupItemsSubclass {
+    return [MyItemModel class];
 }
 
 @end

@@ -13,9 +13,9 @@
 + (instancetype)defaultImages {
     zhRemovableEditSetImages *images = [[zhRemovableEditSetImages alloc] init];
     images.reservezoneImage = [UIImage imageNamed:@"zh_REImaginarylineBox"];
-    images.badgePlusImage = [UIImage imageNamed:@"zh_REBadgeAdd"];
-    images.badgeMinusImage = [UIImage imageNamed:@"zh_REBadgeDelete"];
-    images.badgeGrayImage = [UIImage imageNamed:@"zh_REBadgeDone"];
+    images.badgeAddImage = [UIImage imageNamed:@"zh_REBadgeAdd"];
+    images.badgeDeleteImage = [UIImage imageNamed:@"zh_REBadgeDelete"];
+    images.badgeSelectedImage = [UIImage imageNamed:@"zh_REBadgeDone"];
     return images;
 }
 
@@ -110,13 +110,13 @@
 - (void)setBadgeImageByRemovableEditState:(zhRemovableEditBadgeState)state {
     switch (state) {
         case zhRemovableEditBadgeStateAddible:
-            _badgeImageView.image = _images.badgePlusImage;
+            _badgeImageView.image = _images.badgeAddImage;
             break;
         case zhRemovableEditBadgeStateDeletable:
-            _badgeImageView.image = _images.badgeMinusImage;
+            _badgeImageView.image = _images.badgeDeleteImage;
             break;
         case zhRemovableEditBadgeStateSelected:
-            _badgeImageView.image = _images.badgeGrayImage;
+            _badgeImageView.image = _images.badgeSelectedImage;
             break;
         case zhRemovableEditBadgeStateNormal:
             _badgeImageView.image = nil;

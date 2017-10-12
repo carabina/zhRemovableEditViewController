@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
-    zhRemovableEditBadgeStateAddible = 0,   // 可加状态
-    zhRemovableEditBadgeStateDeletable,     // 可减状态
+    zhRemovableEditBadgeStateNormal = 0,    // 正常状态(无任何标记)
+    zhRemovableEditBadgeStateAddible,       // 可添加状态
+    zhRemovableEditBadgeStateDeletable,     // 可删减状态
     zhRemovableEditBadgeStateSelected,      // 已选状态(不可操作)
-    zhRemovableEditBadgeStateNormal         // 正常状态(无任何标记)
 };
 
 @interface zhRemovableEditItemModel : NSObject <NSCopying>
@@ -32,8 +32,11 @@ typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
 /// 图标名称
 @property (nonatomic, strong) NSString *iconName;
 
-/// 用于标记item处于哪种编辑状态 (0加状态 1减状态 2已选状态 3无)
+/// 用于标记item处于哪种编辑状态 (0正常状态 1可添加状态 2可删减状态 3已选状态)
 @property (nonatomic, assign) zhRemovableEditBadgeState badgeState;
+
+/// 可以重写该方法对字段重命名
+- (NSDictionary<NSString *,NSString *> *)zh_renameKeys;
 
 @end
 
@@ -54,8 +57,10 @@ typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
 /// 数据源映射
 + (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data;
 
-/// 数据源映射 (可对字段重命名)
-+ (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data
-                                                  renameKeys:(NSDictionary<NSString *, NSString *> *)renameKeys;
+/// 重写该方法设置groupItems对应的模型类
+- (Class)zh_groupItemsSubclass;
+
+/// 可以重写该方法对字段重命名
+- (NSDictionary<NSString *,NSString *> *)zh_renameKeys;
 
 @end

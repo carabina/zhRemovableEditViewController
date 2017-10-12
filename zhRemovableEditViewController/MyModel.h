@@ -16,6 +16,4 @@
 
 @interface MyGroupModel : zhRemovableEditGroupModel
 
-@property (nonatomic, strong) NSString *myTitle;
-
 @end

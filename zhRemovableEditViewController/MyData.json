@@ -6,29 +6,29 @@
               "groupSubTitle" : "(按住拖动调整排序)",
               "groupItems" : [
                               {
-                              "uniqueId" : 104,
-                              "title" : "淘票票",
-                              "iconName" : "淘票票",
-                              "iconUrl" : "https://www.baidu.com/img/bd_logo1.png",
-                              "badgeState" : 3
+                              "uniqueId" : 103,
+                              "myTitle" : "饿了么",
+                              "iconName" : "饿了么",
+                              "badgeState" : 0
                               },
                               {
-                              "uniqueId" : 103,
-                              "title" : "饿了么",
-                              "iconName" : "饿了么",
-                              "badgeState" : 3
+                              "uniqueId" : 104,
+                              "myTitle" : "淘票票",
+                              "iconName" : "淘票票",
+                              "iconUrl" : "https://www.baidu.com/img/bd_logo1.png",
+                              "badgeState" : 0
                               },
                               {
                               "uniqueId" : 105,
-                              "title" : "淘宝",
+                              "myTitle" : "淘宝",
                               "iconName" : "淘宝",
-                              "badgeState" : 3
+                              "badgeState" : 0
                               },
                               {
                               "uniqueId" : 200,
                               "title" : "转账",
                               "iconName" : "转账",
-                              "badgeState" : 3
+                              "badgeState" : 0
                               }
                               ]
               },
@@ -40,25 +40,25 @@
                               "uniqueId" : 101,
                               "title" : "滴滴出行",
                               "iconName" : "滴滴出行",
-                              "badgeState" : 0
+                              "badgeState" : 1
                               },
                               {
                               "uniqueId" : 108,
                               "title" : "天猫",
                               "iconName" : "天猫",
-                              "badgeState" : 0
+                              "badgeState" : 1
                               },
                               {
                               "uniqueId" : 109,
                               "title" : "共享单车",
                               "iconName" : "共享单车",
-                              "badgeState" : 0
+                              "badgeState" : 1
                               },
                               {
                               "uniqueId" : 202,
                               "title" : "芝麻信用",
                               "iconName" : "芝麻信用",
-                              "badgeState" : 0
+                              "badgeState" : 1
                               }
                               ]
               },
@@ -70,67 +70,67 @@
                                "uniqueId" : 100,
                                "title" : "到位",
                                "iconName" : "到位",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 101,
                                "title" : "滴滴出行",
                                "iconName" : "滴滴出行",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 102,
                                "title" : "运动",
                                "iconName" : "运动",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 103,
                                "title" : "饿了么",
                                "iconName" : "饿了么",
-                               "badgeState" : 0
+                               "badgeState" : 3
                                },
                                {
                                "uniqueId" : 104,
                                "title" : "淘票票",
                                "iconName" : "淘票票",
-                               "badgeState" : 0
+                               "badgeState" : 3
                                },
                                {
                                "uniqueId" : 105,
                                "title" : "淘宝",
                                "iconName" : "淘宝",
-                               "badgeState" : 0
+                               "badgeState" : 3
                                },
                                {
                                "uniqueId" : 106,
                                "title" : "服务",
                                "iconName" : "服务",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 107,
                                "title" : "教育",
                                "iconName" : "教育",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 108,
                                "title" : "天猫",
                                "iconName" : "天猫",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 109,
                                "title" : "共享单车",
                                "iconName" : "共享单车",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 110,
                                "title" : "体育服务",
                                "iconName" : "体育服务",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                }
                                ]
                },
@@ -142,31 +142,31 @@
                                "uniqueId" : 200,
                                "title" : "转账",
                                "iconName" : "转账",
-                               "badgeState" : 0
+                               "badgeState" : 3
                                },
                                {
                                "uniqueId" : 201,
                                "title" : "蚂蚁森林",
                                "iconName" : "蚂蚁森林",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 202,
                                "title" : "芝麻信用",
                                "iconName" : "芝麻信用",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 203,
                                "title" : "奖励金",
                                "iconName" : "奖励金",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                },
                                {
                                "uniqueId" : 204,
                                "title" : "AA收款",
                                "iconName" : "AA收款",
-                               "badgeState" : 0
+                               "badgeState" : 1
                                }
                                ]
                }

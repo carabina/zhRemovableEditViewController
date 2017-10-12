@@ -70,6 +70,9 @@
 /// 重写该方法自定义点击事件
 - (void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
+/// 重写该方法可用于编辑完成后做保存操作
+- (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell;
+
 /// 使用该方法刷新页面数据
 - (void)zh_reloadData;
 

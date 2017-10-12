@@ -7,29 +7,6 @@
 //
 
 #import "zhRemovableEditModel.h"
-#import <objc/runtime.h>
-
-@implementation NSDictionary (RESafeAccess)
-
-- (NSArray *)arrayForKey:(id)aKey {
-    id value = [self objectForKey:aKey];
-    return [value isKindOfClass:[NSArray class]] ? value : nil;
-}
-
-- (NSString *)stringForKey:(id)aKey {
-    id value = [self objectForKey:aKey];
-    if (!value || value == [NSNull null]) return nil;
-    if ([value isKindOfClass:[NSString class]]) return (NSString *)value;
-    if ([value isKindOfClass:[NSNumber class]]) return [value stringValue];
-    return nil;
-}
-
-- (NSInteger)integerValueForKey:(id)aKey {
-    id value = [self objectForKey:aKey];
-    return ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) ? [value integerValue] : 0;
-}
-
-@end
 
 @interface zhRemovableEditItemModel ()
 
@@ -53,10 +30,6 @@
     return model;
 }
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    [self setValue:value forKey:@"zh_markId"];
-}
-
 - (NSInteger)uniqueId {
     return self.zh_markId;
 }
@@ -73,6 +46,29 @@
     return model;
 }
 
+- (void)setValue:(id)value forKey:(NSString *)key {
+    [super setValue:value forKey:key];
+    NSDictionary *renameDict = [self zh_renameKeys];
+    [renameDict enumerateKeysAndObjectsUsingBlock:^(NSString *realKey, NSString *renameKey, BOOL * _Nonnull stop) {
+        if ([renameKey isEqualToString:key]) [self setValue:value forKey:realKey];
+    }];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    NSDictionary *renameDict = [self zh_renameKeys];
+    if ([key isEqualToString:@"uniqueId"] || [key isEqualToString:renameDict[@"uniqueId"]]) {
+        [self setValue:value forKey:@"zh_markId"];
+    } else {
+        if (![renameDict.allValues containsObject:key]) {
+            NSLog(@"** %@ UndefinedKey: %@ ** ", self, key);
+        }
+    }
+}
+
+- (NSDictionary<NSString *,NSString *> *)zh_renameKeys {
+    return @{};
+}
+
 @end
 
 @implementation zhRemovableEditGroupModel
@@ -86,45 +82,58 @@
 }
 
 + (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data {
-    return [self mapWithData:data renameKeys:nil];
+    return [[self alloc] mapWithData:data];
 }
 
-+ (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data
-                                                  renameKeys:(NSDictionary<NSString *,NSString *> *)renameKeys {
+- (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data {
     if (![data isKindOfClass:[NSArray class]]) return nil;
-    
-    NSString* (^getRealKey)(NSString *) = ^(NSString *key){
-        if (!renameKeys) return key;
-        NSString *realKey = [renameKeys objectForKey:key];
-        return realKey ? realKey : key;
-    };
-    
     NSMutableArray *dataArray = @[].mutableCopy;
     for (NSDictionary *groupData in data) {
-        NSString *groupTitle = [groupData stringForKey:getRealKey(@"groupTitle")];
-        NSString *groupSubTitle = [groupData stringForKey:getRealKey(@"groupSubTitle")];
-        NSArray<NSDictionary *> *dataItems = [groupData arrayForKey:getRealKey(@"groupItems")];
+        NSArray<NSDictionary *> *dataItems = [groupData objectForKey:@"groupItems"];
+        if (!dataItems) {
+            NSDictionary *renameDict = [self zh_renameKeys];
+            dataItems = [groupData objectForKey:renameDict[@"groupItems"]];
+        }
+        NSParameterAssert([dataItems isKindOfClass:[NSArray class]]);
         NSMutableArray<zhRemovableEditItemModel *> *models = @[].mutableCopy;
         for (NSDictionary *dict in dataItems) {
-            NSInteger uniqueId = [dict integerValueForKey:getRealKey(@"uniqueId")];
-            NSString *title = [dict stringForKey:getRealKey(@"title")];
-            NSString *iconUrl = [dict stringForKey:getRealKey(@"iconUrl")];
-            NSString *iconName = [dict stringForKey:getRealKey(@"iconName")];
-            NSInteger badgeState = [dict integerValueForKey:getRealKey(@"badgeState")];
-            zhRemovableEditItemModel *model = [zhRemovableEditItemModel modelWithUniqueId:uniqueId];
-            model.title = title;
-            model.iconUrl = iconUrl;
-            model.iconName = iconName;
-            model.badgeState = badgeState;
+            zhRemovableEditItemModel *model = [[[self zh_groupItemsSubclass] alloc] init];
+            [model setValuesForKeysWithDictionary:dict];
             [models addObject:model];
         }
-        zhRemovableEditGroupModel *groupModel = [[zhRemovableEditGroupModel alloc] init];
-        groupModel.groupTitle = groupTitle;
-        groupModel.groupSubTitle = groupSubTitle;
+        zhRemovableEditGroupModel *groupModel = [[self.class alloc] init];
+        [groupModel setValuesForKeysWithDictionary:groupData];
         groupModel.groupItems = models;
         [dataArray addObject:groupModel];
     }
     return dataArray.mutableCopy;
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key {
+    NSDictionary *renameDict = [self zh_renameKeys];
+    if ([self isMemberOfClass:[zhRemovableEditGroupModel class]]) {
+        if (![key isEqualToString:@"groupItems"] &&
+            ![key isEqualToString:renameDict[@"groupItems"]]) [super setValue:value forKey:key];
+        return;
+    }
+    [super setValue:value forKey:key];
+    [renameDict enumerateKeysAndObjectsUsingBlock:^(NSString *realKey, NSString *renameKey, BOOL * _Nonnull stop) {
+        if ([renameKey isEqualToString:key]) [self setValue:value forKey:realKey];
+    }];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    if (![[self zh_renameKeys].allValues containsObject:key]) {
+        NSLog(@"** %@ UndefinedKey: %@ ** ", self, key);
+    }
+}
+
+- (Class)zh_groupItemsSubclass {
+    return [zhRemovableEditItemModel class];
+}
+
+- (NSDictionary *)zh_renameKeys {
+    return @{};
 }
 
 @end

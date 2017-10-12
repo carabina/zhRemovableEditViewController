@@ -208,6 +208,9 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 #pragma mark - zhRemovableEditCollectionViewCellDelegate
 
+- (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell {
+}
+
 - (void)zh_removableEditCollectionViewCellDidClickBadge:(zhRemovableEditCollectionViewCell *)cell {
     if (0 == [self.collectionView indexPathForCell:cell].section) {
         [self zh_deleteItemWithRemovableEditCollectionViewCell:cell];
@@ -229,7 +232,10 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
                 [self.collectionView insertItemsAtIndexPaths:@[insertIndexPath]];
                 _inMaxing = NO;
             }
-        } completion:NULL];
+        } completion:^(BOOL finished) {
+            // TODO: 相同id会调用相应的的次数
+            [self zh_removableEditCollectionViewCellWorkCompleted:cell];
+        }];
     };
     
     void (^finishedTransform)(void) = ^() {
@@ -306,24 +312,26 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     }
     
     void (^cellAnimations)(NSIndexPath *, NSTimeInterval) = ^(NSIndexPath *indexPath, NSTimeInterval delay) {
-        UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
-        if (cell) {
-            cell.transform = CGAffineTransformMakeScale(0.f, 0.f);
-            cell.alpha = 0;
-            cell.hidden = NO;
+        UICollectionViewCell *newCell = [self.collectionView cellForItemAtIndexPath:indexPath];
+        if (newCell) {
+            newCell.transform = CGAffineTransformMakeScale(0.f, 0.f);
+            newCell.alpha = 0;
+            newCell.hidden = NO;
             if (self.useSpringAnimation) {
                 [UIView animateWithDuration:0.75 delay:delay usingSpringWithDamping:0.55 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
-                    cell.transform = CGAffineTransformIdentity;
-                    cell.alpha = 1;
+                    newCell.transform = CGAffineTransformIdentity;
+                    newCell.alpha = 1;
                 } completion:^(BOOL finished) {
                     [newItemModel setValue:@(NO) forKey:@"zh_isInvisible"];
+                    [self zh_removableEditCollectionViewCellWorkCompleted:cell];
                 }];
             } else {
                 [UIView animateWithDuration:0.25 delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
-                    cell.transform = CGAffineTransformIdentity;
-                    cell.alpha = 1;
+                    newCell.transform = CGAffineTransformIdentity;
+                    newCell.alpha = 1;
                 } completion:^(BOOL finished) {
                     [newItemModel setValue:@(NO) forKey:@"zh_isInvisible"];
+                    [self zh_removableEditCollectionViewCellWorkCompleted:cell];
                 }];
             }
         }

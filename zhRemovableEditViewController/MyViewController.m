@@ -34,8 +34,7 @@
     NSArray *responseData = [jsonObject objectForKey:@"Group"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mj_objectArrayWithKeyValuesArray:responseData];
-//        NSMutableArray<zhRemovableEditGroupModel *> *models = [zhRemovableEditGroupModel mapWithData:responseData];
+        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mapWithData:responseData];
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.dataArray = models;
             [self zh_reloadData];
@@ -45,9 +44,12 @@
 
 -(void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     MyGroupModel *gmodel = (MyGroupModel *)self.dataArray[indexPath.section];
-    NSLog(@"gmodel.hahatIitle==> %@", gmodel.myTitle);
     MyItemModel *imodel = (MyItemModel *)gmodel.groupItems[indexPath.row];
     NSLog(@"imodel.title==> %@", imodel.title);
+}
+
+- (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell {
+    NSLog(@"操作完成~~~");
 }
 
 @end

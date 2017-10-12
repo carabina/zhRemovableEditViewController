@@ -27,9 +27,9 @@ static inline CGFloat zh_sizeFitH(CGFloat value) {
 
 + (instancetype)defaultImages;
 @property (nonatomic, strong) UIImage *reservezoneImage; // 设置预留区域虚线边框图片
-@property (nonatomic, strong) UIImage *badgePlusImage;  // 加状态图片
-@property (nonatomic, strong) UIImage *badgeMinusImage; // 减状态图片
-@property (nonatomic, strong) UIImage *badgeGrayImage;  // 灰状态图片
+@property (nonatomic, strong) UIImage *badgeAddImage;    // 加状态图片
+@property (nonatomic, strong) UIImage *badgeDeleteImage; // 减状态图片
+@property (nonatomic, strong) UIImage *badgeSelectedImage; // 已选状态图片
 
 @end
 
