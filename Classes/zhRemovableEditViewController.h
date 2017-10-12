@@ -41,7 +41,7 @@
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 
 /// 数据源
-@property (nonatomic, strong) NSMutableArray<zhRemovableEditSectionModel *> *dataArray;
+@property (nonatomic, strong) NSMutableArray<zhRemovableEditGroupModel *> *dataArray;
 
 /// 布局信息
 @property (nonatomic, strong) zhRemovableEditViewLayout *reLayout;
@@ -66,5 +66,11 @@
 
 /// 重写该方法用于设置数据源
 - (void)zh_loadData;
+
+/// 重写该方法自定义点击事件
+- (void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+
+/// 使用该方法刷新页面数据
+- (void)zh_reloadData;
 
 @end

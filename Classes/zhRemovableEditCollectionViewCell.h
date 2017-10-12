@@ -59,6 +59,6 @@ static inline CGFloat zh_sizeFitH(CGFloat value) {
 
 @property (nonatomic, strong, readonly) UIView *containerView;
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
-@property (nonatomic, strong) zhRemovableEditSectionModel *sectionModel;
+@property (nonatomic, strong) zhRemovableEditGroupModel *sectionModel;
 
 @end

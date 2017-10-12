@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "zhRemovableEditModel.h"
+#import "MyItemModel.h"
 
-@interface MyModel : NSObject
+@interface MyDataList : NSObject
 
-+ (NSArray<zhRemovableEditSectionModel *> *)testModel;
++ (NSMutableArray<zhRemovableEditGroupModel *> *)testModel;
 
 @end

@@ -74,8 +74,8 @@
 }
 
 - (void)badgeImageViewClicked {
-    if (_model.badgeState == zhRemovableEditBadgeStateGray ||
-        _model.badgeState == zhRemovableEditBadgeStateNone ||
+    if (_model.badgeState == zhRemovableEditBadgeStateSelected ||
+        _model.badgeState == zhRemovableEditBadgeStateNormal ||
         !_reservezoneImageView.hidden) return;
     if ([self.delegate respondsToSelector:@selector(zh_removableEditCollectionViewCellDidClickBadge:)]) {
         [self.delegate zh_removableEditCollectionViewCellDidClickBadge:self];
@@ -92,11 +92,12 @@
     
     _titleLabel.text = model.title;
     
-    if (model.imageUrl) {
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.imageUrl]];
+    model.iconUrl = [model.iconUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+    if (model.iconUrl.length) {
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.iconUrl]];
         _imageView.image = [UIImage imageWithData: imageData];
-    } else {
-        _imageView.image = model.image;
+    } else if (model.iconName) {
+        _imageView.image = [UIImage imageNamed:model.iconName];
     }
     
     [self setBadgeImageByRemovableEditState:model.badgeState];
@@ -108,16 +109,16 @@
 
 - (void)setBadgeImageByRemovableEditState:(zhRemovableEditBadgeState)state {
     switch (state) {
-        case zhRemovableEditBadgeStatePlus:
+        case zhRemovableEditBadgeStateAddible:
             _badgeImageView.image = _images.badgePlusImage;
             break;
-        case zhRemovableEditBadgeStateMinus:
+        case zhRemovableEditBadgeStateDeletable:
             _badgeImageView.image = _images.badgeMinusImage;
             break;
-        case zhRemovableEditBadgeStateGray:
+        case zhRemovableEditBadgeStateSelected:
             _badgeImageView.image = _images.badgeGrayImage;
             break;
-        case zhRemovableEditBadgeStateNone:
+        case zhRemovableEditBadgeStateNormal:
             _badgeImageView.image = nil;
             break;
         default: break;
@@ -158,12 +159,12 @@
     _titleLabel.frame = CGRectMake(paddingLeft, 0, _containerView.frame.size.width - paddingLeft, _containerView.frame.size.height);
 }
 
-- (void)setSectionModel:(zhRemovableEditSectionModel *)sectionModel {
+- (void)setSectionModel:(zhRemovableEditGroupModel *)sectionModel {
     _sectionModel = sectionModel;
     if (sectionModel.attributedTitle) {
         _titleLabel.attributedText = sectionModel.attributedTitle;
     } else {
-        _titleLabel.text = sectionModel.title;
+        _titleLabel.text = sectionModel.groupTitle;
     }
 }
 

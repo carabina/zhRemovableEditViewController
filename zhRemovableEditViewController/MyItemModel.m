@@ -1,13 +1,13 @@
+
 //
-//  zhRemovableEditModel.m
+//  MyItemModel.m
 //  zhRemovableEditViewController
 //
-//  Created by zhanghao on 2017/9/28.
-//  Copyright © 2017年 snail-z. All rights reserved.
+//  Created by zhanghao on 2017/10/12.
+//  Copyright © 2017年 金慧盈通. All rights reserved.
 //
 
-#import "zhRemovableEditModel.h"
-#import <objc/runtime.h>
+#import "MyItemModel.h"
 
 @implementation NSDictionary (RESafeAccess)
 
@@ -31,55 +31,12 @@
 
 @end
 
-@interface zhRemovableEditItemModel ()
 
-@property (nonatomic, assign) NSInteger zh_markId;
-@property (nonatomic, assign) BOOL zh_usingReservezone;
-@property (nonatomic, assign) BOOL zh_isInvisible;
+@implementation MyItemModel
 
 @end
 
-@implementation zhRemovableEditItemModel
-
-+ (instancetype)modelWithUniqueId:(NSInteger)uniqueId {
-    return [[self alloc] modelWithUniqueId:uniqueId];
-}
-
-- (instancetype)modelWithUniqueId:(NSInteger)uniqueId {
-    zhRemovableEditItemModel *model = [[zhRemovableEditItemModel alloc] init];
-    model.zh_markId = uniqueId;
-    model.zh_usingReservezone = NO;
-    model.zh_isInvisible = NO;
-    return model;
-}
-
-- (NSInteger)uniqueId {
-    return self.zh_markId;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    zhRemovableEditItemModel *model = [[zhRemovableEditItemModel alloc] init];
-    model.zh_markId = self.uniqueId;
-    model.title = self.title;
-    model.iconName = self.iconName;
-    model.iconUrl = self.iconUrl;
-    model.badgeState = self.badgeState;
-    model.zh_usingReservezone = self.zh_usingReservezone;
-    model.zh_isInvisible = self.zh_isInvisible;
-    return model;
-}
-
-@end
-
-@implementation zhRemovableEditGroupModel
-
-- (id)copyWithZone:(NSZone *)zone {
-    zhRemovableEditGroupModel *model = [[zhRemovableEditGroupModel allocWithZone:zone] init];
-    model.groupTitle = self.groupTitle;
-    model.attributedTitle = self.attributedTitle;
-    model.groupItems = self.groupItems;
-    return model;
-}
+@implementation MyGroupModel
 
 + (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data {
     return [self mapWithData:data renameKeys:nil];
@@ -114,13 +71,15 @@
             model.badgeState = badgeState;
             [models addObject:model];
         }
-        zhRemovableEditGroupModel *groupModel = [[zhRemovableEditGroupModel alloc] init];
+        MyGroupModel *groupModel = [[MyGroupModel alloc] init];
         groupModel.groupTitle = groupTitle;
         groupModel.groupSubTitle = groupSubTitle;
         groupModel.groupItems = models;
+        groupModel.myTitle = @"测试~~~";
         [dataArray addObject:groupModel];
     }
     return dataArray.mutableCopy;
 }
+
 
 @end

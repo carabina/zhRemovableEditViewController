@@ -7,7 +7,7 @@
 //
 
 #import "MyViewController.h"
-#import "MyModel.h"
+#import "MyDataList.h"
 
 @interface MyViewController ()
 
@@ -29,7 +29,26 @@
 }
 
 - (void)zh_loadData {
-    self.dataArray = [MyModel testModel].mutableCopy;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"MyData" ofType:@"json"];
+        id jsonObject=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:jsonPath] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSArray *responseData = [jsonObject objectForKey:@"Group"];
+        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mapWithData:responseData];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.dataArray = models;
+            [self zh_reloadData];
+        });
+    });
+}
+
+-(void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    MyGroupModel *gmodel = (MyGroupModel *)self.dataArray[indexPath.section];
+    NSLog(@"gmodel.hahatIitle==> %@", gmodel.myTitle);
+    MyItemModel *imodel = (MyItemModel *)gmodel.groupItems[indexPath.row];
+    NSLog(@"imodel.title==> %@", imodel.title);
 }
 
 @end

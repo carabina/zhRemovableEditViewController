@@ -41,17 +41,22 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 @implementation zhRemovableEditViewController
 
+- (void)zh_reloadData {
+    [self zh_commonConfiguration];
+    [self.collectionView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self zh_loadData];
-    [self zh_commonConfiguration];
     [self commonInitialization];
 }
 
 - (void)zh_loadData {
     self.dataArray = @[].mutableCopy;
+    [self zh_reloadData];
 }
 
 - (void)zh_commonConfiguration {
@@ -91,7 +96,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 - (void)setShowReservezone:(BOOL)showReservezone {
     if (!showReservezone) return;
     _showReservezone = showReservezone;
-    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.itemModels;
+    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.groupItems;
     [firstDataArray addObject:[self reserveModel]];
 }
 
@@ -128,14 +133,14 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 // 每组多少个
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataArray[section].itemModels.count;
+    return self.dataArray[section].groupItems.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     zhRemovableEditCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:zhRemovableEditCellIdentify forIndexPath:indexPath];
     cell.delegate = self;
     cell.images = self.reImages;
-    cell.model = self.dataArray[indexPath.section].itemModels[indexPath.item];
+    cell.model = self.dataArray[indexPath.section].groupItems[indexPath.item];
     return cell;
 }
 
@@ -155,6 +160,10 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self zh_collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+}
+
+- (void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 #pragma mark - zhRemovableEditLayoutDelegate
@@ -166,7 +175,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     if (indexPath.row < self.fixedCount) return NO;
     
     if (_showReservezone && !_inMaxing) {
-        if (indexPath.item == self.dataArray[indexPath.section].itemModels.count - 1) {
+        if (indexPath.item == self.dataArray[indexPath.section].groupItems.count - 1) {
             return NO;
         }
     }
@@ -184,10 +193,10 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 // 拖动完成（需要调整数据源）
 - (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath didMoveToIndexPath:(NSIndexPath *)toIndexPath {
-    zhRemovableEditSectionModel *sectionModel = self.dataArray[fromIndexPath.section];
-    zhRemovableEditItemModel *itemModel = sectionModel.itemModels[fromIndexPath.item];
-    [sectionModel.itemModels removeObjectAtIndex:fromIndexPath.item];
-    [sectionModel.itemModels insertObject:[itemModel copy] atIndex:toIndexPath.item];
+    zhRemovableEditGroupModel *sectionModel = self.dataArray[fromIndexPath.section];
+    zhRemovableEditItemModel *itemModel = sectionModel.groupItems[fromIndexPath.item];
+    [sectionModel.groupItems removeObjectAtIndex:fromIndexPath.item];
+    [sectionModel.groupItems insertObject:[itemModel copy] atIndex:toIndexPath.item];
 }
 
 #pragma mark - zhRemovableEditCollectionViewCellDelegate
@@ -202,7 +211,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 - (void)zh_deleteItemWithRemovableEditCollectionViewCell:(zhRemovableEditCollectionViewCell *)cell {
     zhRemovableEditItemModel *currentModel = cell.model;
-    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.itemModels;
+    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.groupItems;
     
     void (^cellUpdates)(NSIndexPath *) = ^(NSIndexPath *indexPath) {
         [self.collectionView performBatchUpdates:^{
@@ -227,9 +236,9 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
                 for (NSInteger section = 1; section < numberOfSections; section++) {
                     NSUInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
                     for (NSInteger index = 0; index < numberOfItems; index++) {
-                        zhRemovableEditItemModel *originalModel = self.dataArray[section].itemModels[index];
+                        zhRemovableEditItemModel *originalModel = self.dataArray[section].groupItems[index];
                         if (originalModel.uniqueId == currentModel.uniqueId) {
-                            originalModel.badgeState = zhRemovableEditBadgeStatePlus;
+                            originalModel.badgeState = zhRemovableEditBadgeStateAddible;
                             NSIndexPath *originalIndexPath = [NSIndexPath indexPathForItem:index inSection:section];
                             cellUpdates(originalIndexPath);
                         }
@@ -267,20 +276,20 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
         return;
     }
     
-    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.itemModels;
+    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.groupItems;
     
     zhRemovableEditItemModel *currentModel = cell.model;
     zhRemovableEditItemModel *newItemModel = [currentModel copy];
-    newItemModel.badgeState = zhRemovableEditBadgeStateMinus;
+    newItemModel.badgeState = zhRemovableEditBadgeStateDeletable;
     [newItemModel setValue:@(YES) forKey:@"zh_isInvisible"];
     
     NSInteger numberOfSections = [self.collectionView numberOfSections];
     for (NSInteger section = 1; section < numberOfSections; section++) {
         NSUInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
         for (NSInteger index = 0; index < numberOfItems; index++) {
-            zhRemovableEditItemModel *originalModel = self.dataArray[section].itemModels[index];
+            zhRemovableEditItemModel *originalModel = self.dataArray[section].groupItems[index];
             if (originalModel.uniqueId == currentModel.uniqueId) {
-                originalModel.badgeState = zhRemovableEditBadgeStateGray;
+                originalModel.badgeState = zhRemovableEditBadgeStateSelected;
                 NSIndexPath *originalIndexPath = [NSIndexPath indexPathForItem:index inSection:section];
                 [self.collectionView performBatchUpdates:^{
                     [self.collectionView reloadItemsAtIndexPaths:@[originalIndexPath]];
