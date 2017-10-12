@@ -7,7 +7,7 @@
 //
 
 #import "MyViewController.h"
-#import "MyDataList.h"
+#import "MyModel.h"
 
 @interface MyViewController ()
 
@@ -29,14 +29,13 @@
 }
 
 - (void)zh_loadData {
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"MyData" ofType:@"json"];
+    id jsonObject=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:jsonPath] options:NSJSONReadingAllowFragments error:nil];
+    NSArray *responseData = [jsonObject objectForKey:@"Group"];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"MyData" ofType:@"json"];
-        id jsonObject=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:jsonPath] options:NSJSONReadingAllowFragments error:nil];
-        
-        NSArray *responseData = [jsonObject objectForKey:@"Group"];
-        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mapWithData:responseData];
-        
+        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mj_objectArrayWithKeyValuesArray:responseData];
+//        NSMutableArray<zhRemovableEditGroupModel *> *models = [zhRemovableEditGroupModel mapWithData:responseData];
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.dataArray = models;
             [self zh_reloadData];

@@ -41,17 +41,24 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 @implementation zhRemovableEditViewController
 
-- (void)zh_reloadData {
-    [self zh_commonConfiguration];
-    [self.collectionView reloadData];
+- (instancetype)init {
+    if (self = [super init]) {
+        [self zh_commonConfiguration];
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self zh_loadData];
     [self commonInitialization];
+    [self zh_loadData];
+}
+
+- (void)zh_reloadData {
+    [self zh_commonConfiguration];
+    [self.collectionView reloadData];
 }
 
 - (void)zh_loadData {

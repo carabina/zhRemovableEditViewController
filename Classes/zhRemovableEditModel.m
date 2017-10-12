@@ -53,6 +53,10 @@
     return model;
 }
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    [self setValue:value forKey:@"zh_markId"];
+}
+
 - (NSInteger)uniqueId {
     return self.zh_markId;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F142192D8B350CEC78643B0C /* Pods_zhRemovableEditViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44836DEBFBDD68A6212D17E4 /* Pods_zhRemovableEditViewController.framework */; };
 		F22B37491F8CBBA800009C81 /* zhRemovableEditLayout.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37421F8CBB9200009C81 /* zhRemovableEditLayout.h */; };
 		F22B374A1F8CBBA800009C81 /* zhRemovableEditLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B37481F8CBB9200009C81 /* zhRemovableEditLayout.m */; };
 		F22B374B1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = F22B37441F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.h */; };
@@ -20,7 +21,7 @@
 		F22B37671F8DF66400009C81 /* zh_REBadgeDone.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37631F8DF65200009C81 /* zh_REBadgeDone.png */; };
 		F22B37681F8DF66400009C81 /* zh_REImaginarylineBox.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37641F8DF65200009C81 /* zh_REImaginarylineBox.png */; };
 		F22B377A1F8F46B500009C81 /* MyData.json in Resources */ = {isa = PBXBuildFile; fileRef = F22B37791F8F46B500009C81 /* MyData.json */; };
-		F22B377D1F8F548D00009C81 /* MyItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B377C1F8F548D00009C81 /* MyItemModel.m */; };
+		F22B377D1F8F548D00009C81 /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B377C1F8F548D00009C81 /* MyModel.m */; };
 		F2A605011F7D0B72009BF019 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605001F7D0B72009BF019 /* AppDelegate.m */; };
 		F2A605041F7D0B72009BF019 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605031F7D0B72009BF019 /* ViewController.m */; };
 		F2A605071F7D0B72009BF019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A605051F7D0B72009BF019 /* Main.storyboard */; };
@@ -29,7 +30,6 @@
 		F2A6050F1F7D0B72009BF019 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A6050E1F7D0B72009BF019 /* main.m */; };
 		F2A605191F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605181F7D0B72009BF019 /* zhRemovableEditViewControllerTests.m */; };
 		F2A605241F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605231F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m */; };
-		F2A6053F1F7D4383009BF019 /* MyDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A6053E1F7D4383009BF019 /* MyDataList.m */; };
 		F2A605511F7DC78F009BF019 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605501F7DC78F009BF019 /* MyViewController.m */; };
 		F2A605651F7DDCFC009BF019 /* AA收款.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605531F7DDCEB009BF019 /* AA收款.png */; };
 		F2A605661F7DDD05009BF019 /* 体育服务.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A605541F7DDCEB009BF019 /* 体育服务.png */; };
@@ -69,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44836DEBFBDD68A6212D17E4 /* Pods_zhRemovableEditViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zhRemovableEditViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BB52248060D9653F9CC432 /* Pods-zhRemovableEditViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhRemovableEditViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController.release.xcconfig"; sourceTree = "<group>"; };
+		AEBB7E4DD0FB46CE0132E7A0 /* Pods-zhRemovableEditViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhRemovableEditViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController.debug.xcconfig"; sourceTree = "<group>"; };
 		F22B37411F8CBB9200009C81 /* zhRemovableEditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditModel.h; sourceTree = "<group>"; };
 		F22B37421F8CBB9200009C81 /* zhRemovableEditLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zhRemovableEditLayout.h; sourceTree = "<group>"; };
 		F22B37431F8CBB9200009C81 /* zhRemovableEditCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditCollectionViewCell.m; sourceTree = "<group>"; };
@@ -82,8 +85,8 @@
 		F22B37631F8DF65200009C81 /* zh_REBadgeDone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_REBadgeDone.png; sourceTree = "<group>"; };
 		F22B37641F8DF65200009C81 /* zh_REImaginarylineBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zh_REImaginarylineBox.png; sourceTree = "<group>"; };
 		F22B37791F8F46B500009C81 /* MyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyData.json; sourceTree = "<group>"; };
-		F22B377B1F8F548D00009C81 /* MyItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyItemModel.h; sourceTree = "<group>"; };
-		F22B377C1F8F548D00009C81 /* MyItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyItemModel.m; sourceTree = "<group>"; };
+		F22B377B1F8F548D00009C81 /* MyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
+		F22B377C1F8F548D00009C81 /* MyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
 		F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhRemovableEditViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A604FF1F7D0B72009BF019 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2A605001F7D0B72009BF019 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -100,8 +103,6 @@
 		F2A6051F1F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhRemovableEditViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A605231F7D0B72009BF019 /* zhRemovableEditViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhRemovableEditViewControllerUITests.m; sourceTree = "<group>"; };
 		F2A605251F7D0B72009BF019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2A6053D1F7D4383009BF019 /* MyDataList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDataList.h; sourceTree = "<group>"; };
-		F2A6053E1F7D4383009BF019 /* MyDataList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDataList.m; sourceTree = "<group>"; };
 		F2A6054F1F7DC78F009BF019 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		F2A605501F7DC78F009BF019 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		F2A605531F7DDCEB009BF019 /* AA收款.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AA收款.png"; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F142192D8B350CEC78643B0C /* Pods_zhRemovableEditViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +151,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		285E5A662367C4E806281A6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEBB7E4DD0FB46CE0132E7A0 /* Pods-zhRemovableEditViewController.debug.xcconfig */,
+				65BB52248060D9653F9CC432 /* Pods-zhRemovableEditViewController.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		976C19BCD7BE3CC5196A038D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44836DEBFBDD68A6212D17E4 /* Pods_zhRemovableEditViewController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F22B37301F8C902000009C81 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +203,8 @@
 				F2A605171F7D0B72009BF019 /* zhRemovableEditViewControllerTests */,
 				F2A605221F7D0B72009BF019 /* zhRemovableEditViewControllerUITests */,
 				F2A604FD1F7D0B71009BF019 /* Products */,
+				285E5A662367C4E806281A6E /* Pods */,
+				976C19BCD7BE3CC5196A038D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,17 +221,15 @@
 		F2A604FE1F7D0B72009BF019 /* zhRemovableEditViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F22B37791F8F46B500009C81 /* MyData.json */,
-				F2A6053D1F7D4383009BF019 /* MyDataList.h */,
-				F2A6053E1F7D4383009BF019 /* MyDataList.m */,
-				F2A6054F1F7DC78F009BF019 /* MyViewController.h */,
-				F2A605501F7DC78F009BF019 /* MyViewController.m */,
-				F22B377B1F8F548D00009C81 /* MyItemModel.h */,
-				F22B377C1F8F548D00009C81 /* MyItemModel.m */,
 				F2A604FF1F7D0B72009BF019 /* AppDelegate.h */,
 				F2A605001F7D0B72009BF019 /* AppDelegate.m */,
 				F2A605021F7D0B72009BF019 /* ViewController.h */,
 				F2A605031F7D0B72009BF019 /* ViewController.m */,
+				F2A6054F1F7DC78F009BF019 /* MyViewController.h */,
+				F2A605501F7DC78F009BF019 /* MyViewController.m */,
+				F22B37791F8F46B500009C81 /* MyData.json */,
+				F22B377B1F8F548D00009C81 /* MyModel.h */,
+				F22B377C1F8F548D00009C81 /* MyModel.m */,
 				F2A605051F7D0B72009BF019 /* Main.storyboard */,
 				F2A605081F7D0B72009BF019 /* Assets.xcassets */,
 				F2A6050A1F7D0B72009BF019 /* LaunchScreen.storyboard */,
@@ -279,9 +298,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2A605281F7D0B72009BF019 /* Build configuration list for PBXNativeTarget "zhRemovableEditViewController" */;
 			buildPhases = (
+				70C78BA0FED10F3C03CDC4A2 /* [CP] Check Pods Manifest.lock */,
 				F2A604F81F7D0B71009BF019 /* Sources */,
 				F2A604F91F7D0B71009BF019 /* Frameworks */,
 				F2A604FA1F7D0B71009BF019 /* Resources */,
+				8B7A57A494EA9D97EEDC8221 /* [CP] Embed Pods Frameworks */,
+				FBD751FE62839BAFEC9B0574 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,6 +441,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		70C78BA0FED10F3C03CDC4A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zhRemovableEditViewController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B7A57A494EA9D97EEDC8221 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBD751FE62839BAFEC9B0574 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2A604F81F7D0B71009BF019 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -436,11 +512,10 @@
 				F22B374E1F8CBBA800009C81 /* zhRemovableEditModel.m in Sources */,
 				F22B374F1F8CBBA800009C81 /* zhRemovableEditViewController.h in Sources */,
 				F22B37501F8CBBA800009C81 /* zhRemovableEditViewController.m in Sources */,
-				F2A6053F1F7D4383009BF019 /* MyDataList.m in Sources */,
 				F2A605041F7D0B72009BF019 /* ViewController.m in Sources */,
 				F2A6050F1F7D0B72009BF019 /* main.m in Sources */,
 				F2A605511F7DC78F009BF019 /* MyViewController.m in Sources */,
-				F22B377D1F8F548D00009C81 /* MyItemModel.m in Sources */,
+				F22B377D1F8F548D00009C81 /* MyModel.m in Sources */,
 				F2A605011F7D0B72009BF019 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +677,7 @@
 		};
 		F2A605291F7D0B72009BF019 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEBB7E4DD0FB46CE0132E7A0 /* Pods-zhRemovableEditViewController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -617,6 +693,7 @@
 		};
 		F2A6052A1F7D0B72009BF019 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65BB52248060D9653F9CC432 /* Pods-zhRemovableEditViewController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

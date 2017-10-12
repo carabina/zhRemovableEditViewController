@@ -1,0 +1,6 @@
+framework module Pods_zhRemovableEditViewController {
+  umbrella header "Pods-zhRemovableEditViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
