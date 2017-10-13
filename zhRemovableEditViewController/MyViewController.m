@@ -13,6 +13,7 @@
 @interface MyViewController ()
 
 @property (nonatomic, assign) BOOL inEditing;
+@property (nonatomic, strong) UIButton *rightButton;
 
 @end
 
@@ -25,20 +26,26 @@
 
 - (void)navigationInitialization {
     self.navigationItem.title = @"我的应用编辑";
-    NSDictionary *titleAttri = @{NSFontAttributeName : [UIFont systemFontOfSize:zh_fontSizeFit(17)],
+    NSDictionary *titleAttri = @{NSFontAttributeName : [UIFont systemFontOfSize:zh_fontSizeFit(18)],
                                  NSForegroundColorAttributeName : [UIColor blackColor]};
     [self.navigationController.navigationBar setTitleTextAttributes:titleAttri];
     
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClicked:)];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setTitle:@"编辑" forState:UIControlStateNormal];
+    rightButton.frame = CGRectMake(0, 0, 40, 30);
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(17)];
+    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton = rightButton];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
 }
 
-- (void)rightButtonItemClicked:(UIBarButtonItem *)sender {
-    [self.navigationItem.rightBarButtonItem setTitle:@"完成"];
+- (void)rightButtonItemClicked:(UIButton *)sender {
     if (self.isEditable) {
+        [_rightButton setTitle:@"编辑" forState:UIControlStateNormal];
         [self zh_closeEditMode];
     } else {
+        [_rightButton setTitle:@"完成" forState:UIControlStateNormal];
         [self zh_enteringEditMode];
     }
 }

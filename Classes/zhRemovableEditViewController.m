@@ -107,7 +107,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 - (void)reloadVisibleCells {
     NSArray<UICollectionViewCell *> *visibleCells = self.collectionView.visibleCells;
     [visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
-        [UIView animateWithDuration:0.45 delay:0.05 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             [self.collectionView performBatchUpdates:^{
                 NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
                 [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
