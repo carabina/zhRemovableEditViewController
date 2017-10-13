@@ -11,19 +11,34 @@
 
 @interface MyViewController ()
 
+@property (nonatomic, assign) BOOL inEditing;
+
 @end
 
 @implementation MyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self navigationInitialization];
 }
+
+- (void)navigationInitialization {
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClicked:)];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+}
+
+- (void)rightButtonItemClicked:(UIBarButtonItem *)sender {
+    [self.navigationItem.rightBarButtonItem setTitle:@"完成"];
+}
+
+#pragma mark - Overwrite methods
 
 - (void)zh_commonConfiguration {
     [super zh_commonConfiguration];
     
     self.showReservezone = YES;
-    self.useSpringAnimation = YES;
+    self.useSpringAnimation = NO;
     self.fixedCount = 4;
     self.maxCount = 8;
 }

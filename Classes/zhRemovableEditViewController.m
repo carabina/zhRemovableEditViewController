@@ -30,9 +30,9 @@
 
 @interface zhRemovableEditViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, zhRemovableEditLayoutDelegate, zhRemovableEditLayoutDataSource, zhRemovableEditCollectionViewCellDelegate>
 
-@property (nonatomic, assign, readonly) BOOL inMaxing;
-@property (nonatomic, assign, readonly) BOOL isHudShowing;
-@property (nonatomic, strong, readonly) UIButton *alertHud;
+@property (nonatomic, assign, readonly) BOOL zhIsMaxing;
+@property (nonatomic, assign, readonly) BOOL zhIsHudShowing;
+@property (nonatomic, strong, readonly) UIButton *zhAlertHud;
 
 @end
 
@@ -181,7 +181,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     
     if (indexPath.row < self.fixedCount) return NO;
     
-    if (_showReservezone && !_inMaxing) {
+    if (_showReservezone && !_zhIsMaxing) {
         if (indexPath.item == self.dataArray[indexPath.section].groupItems.count - 1) {
             return NO;
         }
@@ -208,9 +208,6 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 #pragma mark - zhRemovableEditCollectionViewCellDelegate
 
-- (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell {
-}
-
 - (void)zh_removableEditCollectionViewCellDidClickBadge:(zhRemovableEditCollectionViewCell *)cell {
     if (0 == [self.collectionView indexPathForCell:cell].section) {
         [self zh_deleteItemWithRemovableEditCollectionViewCell:cell];
@@ -226,11 +223,11 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     void (^cellUpdates)(NSIndexPath *) = ^(NSIndexPath *indexPath) {
         [self.collectionView performBatchUpdates:^{
             [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
-            if (_showReservezone && _inMaxing) {
+            if (_showReservezone && _zhIsMaxing) {
                 [firstDataArray addObject:[self reserveModel]];
                 NSIndexPath *insertIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
                 [self.collectionView insertItemsAtIndexPaths:@[insertIndexPath]];
-                _inMaxing = NO;
+                _zhIsMaxing = NO;
             }
         } completion:^(BOOL finished) {
             // TODO: 相同id会调用相应的的次数
@@ -284,8 +281,8 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 - (void)zh_addItemWithRemovableEditCollectionViewCell:(zhRemovableEditCollectionViewCell *)cell {
     
-    if (_inMaxing) {
-        [self showAlertHUDWithText:[NSString stringWithFormat:@"最多只能添加%lu个应用", (long)self.maxCount]];
+    if (_zhIsMaxing) {
+        [self zh_removableEditCollectionViewCellMoreThanMaxCount:cell];
         return;
     }
     
@@ -341,7 +338,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
         [firstDataArray insertObject:newItemModel atIndex:firstDataArray.count - 1];
         if (firstDataArray.count == self.maxCount + 1) {
-            _inMaxing = YES;
+            _zhIsMaxing = YES;
             [firstDataArray removeLastObject];
             [self.collectionView performBatchUpdates:^{
                 [self.collectionView reloadItemsAtIndexPaths:@[newIndexPath]];
@@ -361,7 +358,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     } else {
         [firstDataArray addObject:newItemModel];
         if (firstDataArray.count == self.maxCount) {
-            _inMaxing = YES;
+            _zhIsMaxing = YES;
         }
         NSIndexPath *insertIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
         [self.collectionView insertItemsAtIndexPaths:@[insertIndexPath]];
@@ -369,14 +366,22 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     }
 }
 
+- (void)zh_removableEditCollectionViewCellMoreThanMaxCount:(zhRemovableEditCollectionViewCell *)cell {
+    NSString *hudText = [NSString stringWithFormat:@"最多只能添加%lu个应用", (long)self.maxCount];
+    [self showAlertHUDWithText:hudText];
+}
+
+- (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell {
+}
+
 #pragma mark - Alert HUD
 
 - (void)showAlertHUDWithText:(NSString *)message {
-    if (_isHudShowing) return;
-    _isHudShowing = YES;
-    if (!_alertHud) {
-        _alertHud = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_alertHud setBackgroundColor:[UIColor clearColor]];
+    if (_zhIsHudShowing) return;
+    _zhIsHudShowing = YES;
+    if (!_zhAlertHud) {
+        _zhAlertHud = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_zhAlertHud setBackgroundColor:[UIColor clearColor]];
         UIView *hudContainer = [UIView new];
         hudContainer.layer.cornerRadius = 5;
         hudContainer.clipsToBounds = YES;
@@ -387,7 +392,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
         hudLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(15)];
         hudLabel.textColor = [UIColor whiteColor];
         [hudContainer addSubview:hudLabel];
-        [_alertHud addSubview:hudContainer];
+        [_zhAlertHud addSubview:hudContainer];
         CGSize maxSize = CGSizeMake(self.view.bounds.size.width, zh_sizeFitH(45));
         CGSize fitSize = [hudLabel sizeThatFits:maxSize];
         hudContainer.frame = CGRectMake(0, 0, fitSize.width + zh_sizeFitW(35), maxSize.height);
@@ -395,20 +400,20 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
                                           self.view.bounds.size.height / 2);
         hudLabel.frame = hudContainer.bounds;
     }
-    [self.view addSubview:_alertHud];
+    [self.view addSubview:_zhAlertHud];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self hideAlertHUD];
     });
 }
 
 - (void)hideAlertHUD {
-    if (_alertHud) {
+    if (_zhAlertHud) {
         [UIView animateWithDuration:0.25 animations:^{
-            _alertHud.alpha = 0;
+            _zhAlertHud.alpha = 0;
         } completion:^(BOOL finished) {
-            _alertHud.alpha = 1;
-            [_alertHud removeFromSuperview];
-            _isHudShowing = NO;
+            _zhAlertHud.alpha = 1;
+            [_zhAlertHud removeFromSuperview];
+            _zhIsHudShowing = NO;
         }];
     }
 }
