@@ -92,6 +92,30 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     [_collectionView registerClass:[zhRemovableEditCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:zhRemovableEditReusableHeaderIdentify];
 }
 
+#pragma mark - Switch edit mode
+
+- (void)zh_enteringEditMode {
+    _isEditable = YES;
+    [self reloadVisibleCells];
+}
+
+- (void)zh_closeEditMode {
+    _isEditable = NO;
+    [self reloadVisibleCells];
+}
+
+- (void)reloadVisibleCells {
+    NSArray<UICollectionViewCell *> *visibleCells = self.collectionView.visibleCells;
+    [visibleCells enumerateObjectsUsingBlock:^(UICollectionViewCell * _Nonnull cell, NSUInteger idx, BOOL * _Nonnull stop) {
+        [UIView animateWithDuration:0.45 delay:0.05 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [self.collectionView performBatchUpdates:^{
+                NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+                [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+            } completion:NULL];
+        } completion:NULL];
+    }];
+}
+
 #pragma mark - Getter / Setter
 
 - (zhRemovableEditItemModel *)reserveModel {
@@ -148,6 +172,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     cell.delegate = self;
     cell.images = self.reImages;
     cell.model = self.dataArray[indexPath.section].groupItems[indexPath.item];
+    cell.badgeImageView.hidden = !_isEditable;
     return cell;
 }
 

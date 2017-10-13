@@ -55,6 +55,9 @@
 /// 使用弹性动画
 @property (nonatomic, assign) BOOL useSpringAnimation;
 
+/// 是否处于可编辑状态
+@property (nonatomic, assign, readonly) BOOL isEditable;
+
 /// 设置可拖动区域中前fixedCount个不可移动 (默认为0不限制)
 @property (nonatomic, assign) NSInteger fixedCount;
 
@@ -78,5 +81,11 @@
 
 /// 使用该方法刷新页面数据
 - (void)zh_reloadData;
+
+/// 进入编辑模式
+- (void)zh_enteringEditMode;
+
+/// 关闭编辑模式
+- (void)zh_closeEditMode;
 
 @end

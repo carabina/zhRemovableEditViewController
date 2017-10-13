@@ -8,6 +8,7 @@
 
 #import "MyViewController.h"
 #import "MyModel.h"
+#import "UICollectionView+zhtest.h"
 
 @interface MyViewController ()
 
@@ -23,6 +24,11 @@
 }
 
 - (void)navigationInitialization {
+    self.navigationItem.title = @"我的应用编辑";
+    NSDictionary *titleAttri = @{NSFontAttributeName : [UIFont systemFontOfSize:zh_fontSizeFit(17)],
+                                 NSForegroundColorAttributeName : [UIColor blackColor]};
+    [self.navigationController.navigationBar setTitleTextAttributes:titleAttri];
+    
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClicked:)];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
@@ -30,6 +36,11 @@
 
 - (void)rightButtonItemClicked:(UIBarButtonItem *)sender {
     [self.navigationItem.rightBarButtonItem setTitle:@"完成"];
+    if (self.isEditable) {
+        [self zh_closeEditMode];
+    } else {
+        [self zh_enteringEditMode];
+    }
 }
 
 #pragma mark - Overwrite methods
