@@ -79,6 +79,7 @@ static void *zh_markUniqueIdKey = &zh_markUniqueIdKey;
     if ([key isEqualToString:@"zh_isInvisible"] || [key isEqualToString:@"zh_usingReservezone"]) return nil;
     if ([key isEqualToString:@"zh_beInvisible"]) return [super valueForKey:@"zh_isInvisible"];
     if ([key isEqualToString:@"zh_makeReservezone"]) return [super valueForKey:@"zh_usingReservezone"];
+    if (self.uniqueId == -2017) return nil; // 过滤掉占位id
     return [super valueForKey:key];
 }
 
@@ -136,7 +137,7 @@ static void *zh_markUniqueIdKey = &zh_markUniqueIdKey;
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     Class class = [object class];
     unsigned int count;
-    while (class!=[NSObject class]) {
+    while (class != [NSObject class]) {
         objc_property_t *properties = class_copyPropertyList(class, &count);
         for (int i = 0; i<count; i++) {
             objc_property_t property = properties[i];
@@ -146,8 +147,8 @@ static void *zh_markUniqueIdKey = &zh_markUniqueIdKey;
             NSMutableArray<id> *array = @[].mutableCopy;
             if ([value isKindOfClass:[NSArray class]]) {
                 for (id obj in (NSArray *)value) {
-                    id result = [self recursiveKeyValueWithObj:obj];
-                    [array addObject:result];
+                    NSDictionary *result = [self recursiveKeyValueWithObj:obj];
+                    if (result.count) [array addObject:result];
                 }
                 dictionary[propertyName] = array;
             } else {

@@ -92,6 +92,36 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     [_collectionView registerClass:[zhRemovableEditCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:zhRemovableEditReusableHeaderIdentify];
 }
 
+#pragma mark - Getter / Setter
+
+- (void)setMaxCount:(NSInteger)maxCount {
+    _maxCount = maxCount;
+    [self setShowReservezone:self.showReservezone];
+}
+
+- (void)setShowReservezone:(BOOL)showReservezone {
+    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.groupItems;
+    // TODO：待优化
+    if (showReservezone) {
+        _showReservezone = showReservezone;
+        if (firstDataArray.count < self.maxCount) {
+            [firstDataArray addObject:[self reserveModel]];
+        } else {
+            if (self.maxCount > 0) _zhIsMaxing = YES;
+        }
+    } else {
+        if (self.maxCount && firstDataArray.count >= self.maxCount) {
+            _zhIsMaxing = YES;
+        }
+    }
+}
+
+- (zhRemovableEditItemModel *)reserveModel {
+    zhRemovableEditItemModel *reservezoneModel = [zhRemovableEditItemModel modelWithUniqueId:-2017];
+    [reservezoneModel setValue:@(YES) forKey:@"zh_usingReservezone"];
+    return reservezoneModel;
+}
+
 #pragma mark - Switch edit mode
 
 - (void)zh_enteringEditMode {
@@ -114,21 +144,6 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
             } completion:NULL];
         } completion:NULL];
     }];
-}
-
-#pragma mark - Getter / Setter
-
-- (zhRemovableEditItemModel *)reserveModel {
-    zhRemovableEditItemModel *reservezoneModel = [zhRemovableEditItemModel modelWithUniqueId:-2017];
-    [reservezoneModel setValue:@(YES) forKey:@"zh_usingReservezone"];
-    return reservezoneModel;
-}
-
-- (void)setShowReservezone:(BOOL)showReservezone {
-    if (!showReservezone) return;
-    _showReservezone = showReservezone;
-    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.groupItems;
-    [firstDataArray addObject:[self reserveModel]];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -363,7 +378,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     if (_showReservezone) {
         NSIndexPath *newIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
         [firstDataArray insertObject:newItemModel atIndex:firstDataArray.count - 1];
-        if (firstDataArray.count == self.maxCount + 1) {
+        if (firstDataArray.count >= self.maxCount + 1) {
             _zhIsMaxing = YES;
             [firstDataArray removeLastObject];
             [self.collectionView performBatchUpdates:^{

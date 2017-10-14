@@ -8,13 +8,10 @@
 
 #import "MyViewController.h"
 #import "MyModel.h"
-#import <MJExtension/MJExtension.h>
-#import <objc/runtime.h>
+
+static NSString *zh_storageFile = @"zh_Test.plist";
 
 @interface MyViewController ()
-
-@property (nonatomic, assign) BOOL inEditing;
-@property (nonatomic, strong) UIButton *rightButton;
 
 @end
 
@@ -37,42 +34,17 @@
     rightButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(17)];
     [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton = rightButton];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
 }
 
 - (void)rightButtonItemClicked:(UIButton *)sender {
     if (self.isEditable) {
-        [_rightButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [sender setTitle:@"编辑" forState:UIControlStateNormal];
         [self zh_closeEditMode];
-        NSLog(@"完成了");
-        
-        NSString *homepath = @"/Users/jinhuiyingtong/Desktop/mytest";
-        NSString *path = [homepath stringByAppendingPathComponent:@"record.json"];
-        NSArray *array = @[@"2", @"iu"];
-        BOOL re = [array writeToFile:path atomically:YES];
-        if (re) {
-            NSLog(@"write yes");
-        }
-        
-        
-//        NSLog(@"dictArray==>%@", [self.dataArray mj_JSONString]);
-        // 将模型数组转为字典数组
-//        NSArray *dictArray = [MyGroupModel mj_keyValuesArrayWithObjectArray:self.dataArray];
-//        NSLog(@"dictArray==>%@", dictArray);
-        
-        // Unmap
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        [self writeData];
     } else {
-        [_rightButton setTitle:@"完成" forState:UIControlStateNormal];
+        [sender setTitle:@"完成" forState:UIControlStateNormal];
         [self zh_enteringEditMode];
     }
 }
@@ -81,19 +53,18 @@
 
 - (void)zh_commonConfiguration {
     [super zh_commonConfiguration];
-    
-    self.showReservezone = NO;
+    self.showReservezone = YES;
     self.useSpringAnimation = NO;
     self.fixedCount = 4;
     self.maxCount = 8;
 }
 
 - (void)zh_loadData {
-    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"MyData" ofType:@"json"];
-    id jsonObject=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:jsonPath] options:NSJSONReadingAllowFragments error:nil];
-    NSArray *responseData = [jsonObject objectForKey:@"Group"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mapWithData:responseData];
+        NSDictionary *responseData = [self getData];
+        if (!responseData) return ;
+        NSArray *data = [responseData objectForKey:@"Group"];
+        NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mapWithData:data];
         dispatch_sync(dispatch_get_main_queue(), ^{
             self.dataArray = models;
             [self zh_reloadData];
@@ -105,15 +76,38 @@
     MyGroupModel *gmodel = (MyGroupModel *)self.dataArray[indexPath.section];
     MyItemModel *imodel = (MyItemModel *)gmodel.groupItems[indexPath.row];
     NSLog(@"imodel.title==> %@", imodel.title);
-    
-    
-    NSArray *arr = [MyGroupModel unmapWithArray:self.dataArray];
-   
-    NSLog(@"arr=====> %@", arr);
 }
 
 - (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell {
     NSLog(@"操作完成~~~");
 }
 
+#pragma mark - Data
+
+- (NSDictionary *)getData {
+    // 读取沙盒存储内容
+    NSString *documentDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *path = [documentDir stringByAppendingPathComponent:zh_storageFile];
+    if ([NSFileManager.defaultManager fileExistsAtPath:path]) {
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+        if (dict) return dict;
+    }
+    // 首次读取mainBundle内容
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"MyData" ofType:@"json"];
+    return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:jsonPath] options:NSJSONReadingAllowFragments error:nil];
+}
+
+- (void)writeData {
+    NSString *documentDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSLog(@"documentDir===> %@", documentDir);
+    NSString *path = [documentDir stringByAppendingPathComponent:zh_storageFile];
+    
+    NSArray *dictArray = [MyGroupModel unmapWithArray:self.dataArray];
+    NSLog(@"dictArray==> %@", dictArray);
+    NSDictionary *storageDict = @{@"Group" : dictArray};
+    BOOL re = [storageDict writeToFile:path atomically:YES];
+    if (re) NSLog(@"write yes");
+}
+
 @end
+
