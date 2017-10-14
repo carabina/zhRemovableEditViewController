@@ -8,7 +8,8 @@
 
 #import "MyViewController.h"
 #import "MyModel.h"
-#import "UICollectionView+zhtest.h"
+#import <MJExtension/MJExtension.h>
+#import <objc/runtime.h>
 
 @interface MyViewController ()
 
@@ -44,6 +45,32 @@
     if (self.isEditable) {
         [_rightButton setTitle:@"编辑" forState:UIControlStateNormal];
         [self zh_closeEditMode];
+        NSLog(@"完成了");
+        
+        NSString *homepath = @"/Users/jinhuiyingtong/Desktop/mytest";
+        NSString *path = [homepath stringByAppendingPathComponent:@"record.json"];
+        NSArray *array = @[@"2", @"iu"];
+        BOOL re = [array writeToFile:path atomically:YES];
+        if (re) {
+            NSLog(@"write yes");
+        }
+        
+        
+//        NSLog(@"dictArray==>%@", [self.dataArray mj_JSONString]);
+        // 将模型数组转为字典数组
+//        NSArray *dictArray = [MyGroupModel mj_keyValuesArrayWithObjectArray:self.dataArray];
+//        NSLog(@"dictArray==>%@", dictArray);
+        
+        // Unmap
+        
+        
+        
+        
+        
+        
+        
+        
+        
     } else {
         [_rightButton setTitle:@"完成" forState:UIControlStateNormal];
         [self zh_enteringEditMode];
@@ -55,7 +82,7 @@
 - (void)zh_commonConfiguration {
     [super zh_commonConfiguration];
     
-    self.showReservezone = YES;
+    self.showReservezone = NO;
     self.useSpringAnimation = NO;
     self.fixedCount = 4;
     self.maxCount = 8;
@@ -65,7 +92,6 @@
     NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"MyData" ofType:@"json"];
     id jsonObject=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:jsonPath] options:NSJSONReadingAllowFragments error:nil];
     NSArray *responseData = [jsonObject objectForKey:@"Group"];
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableArray<zhRemovableEditGroupModel *> *models = [MyGroupModel mapWithData:responseData];
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -79,6 +105,11 @@
     MyGroupModel *gmodel = (MyGroupModel *)self.dataArray[indexPath.section];
     MyItemModel *imodel = (MyItemModel *)gmodel.groupItems[indexPath.row];
     NSLog(@"imodel.title==> %@", imodel.title);
+    
+    
+    NSArray *arr = [MyGroupModel unmapWithArray:self.dataArray];
+   
+    NSLog(@"arr=====> %@", arr);
 }
 
 - (void)zh_removableEditCollectionViewCellWorkCompleted:(zhRemovableEditCollectionViewCell *)cell {

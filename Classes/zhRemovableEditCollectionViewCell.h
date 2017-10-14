@@ -41,7 +41,7 @@ static inline CGFloat zh_sizeFitH(CGFloat value) {
 - (void)zh_removableEditCollectionViewCellDidClickBadge:(zhRemovableEditCollectionViewCell *)cell;
 
 @end
-
+static void *zh_cellBeInvisibleKey = &zh_cellBeInvisibleKey;
 @interface zhRemovableEditCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
@@ -52,6 +52,7 @@ static inline CGFloat zh_sizeFitH(CGFloat value) {
 @property (nonatomic, weak) id <zhRemovableEditCollectionViewCellDelegate> delegate;
 @property (nonatomic, strong) zhRemovableEditSetImages *images;
 @property (nonatomic, strong) zhRemovableEditItemModel *model;
+- (void)setUsingReservezone:(BOOL)usingReservezone;
 
 @end
 

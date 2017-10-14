@@ -204,6 +204,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     if (0 != indexPath.section) return NO;
     
+    if (!_isEditable) return NO;
     if (indexPath.row < self.fixedCount) return NO;
     
     if (_showReservezone && !_zhIsMaxing) {

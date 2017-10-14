@@ -102,9 +102,9 @@
     
     [self setBadgeImageByRemovableEditState:model.badgeState];
     
-    [self setUsingReservezone:[[model valueForKey:@"zh_usingReservezone"] boolValue]];
+    [self setUsingReservezone:[[model valueForKey:@"zh_makeReservezone"] boolValue]];
     
-    self.hidden = [[model valueForKey:@"zh_isInvisible"] boolValue];
+    self.hidden = [[model valueForKey:@"zh_beInvisible"] boolValue];
 }
 
 - (void)setBadgeImageByRemovableEditState:(zhRemovableEditBadgeState)state {

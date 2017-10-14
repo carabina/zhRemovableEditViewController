@@ -7,16 +7,30 @@
 //
 
 #import "zhRemovableEditModel.h"
+#import <objc/runtime.h>
 
 @interface zhRemovableEditItemModel ()
 
-@property (nonatomic, assign) NSInteger zh_markId;
-@property (nonatomic, assign) BOOL zh_usingReservezone;
-@property (nonatomic, assign) BOOL zh_isInvisible;
+@property (nonatomic, assign) BOOL zh_usingReservezone; // 辅助是否显示预留区使用
+@property (nonatomic, assign) BOOL zh_isInvisible;  // 辅助做添加动画使用
 
 @end
 
 @implementation zhRemovableEditItemModel
+
+static void *zh_markUniqueIdKey = &zh_markUniqueIdKey;
+
+- (void)zh_setUniqueId:(NSInteger)uniqueId {
+    objc_setAssociatedObject(self, zh_markUniqueIdKey, @(uniqueId), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSInteger)zh_getUniqueId {
+    return [objc_getAssociatedObject(self, zh_markUniqueIdKey) integerValue];
+}
+
+- (NSInteger)uniqueId {
+    return [self zh_getUniqueId];
+}
 
 + (instancetype)modelWithUniqueId:(NSInteger)uniqueId {
     return [[self alloc] modelWithUniqueId:uniqueId];
@@ -24,19 +38,15 @@
 
 - (instancetype)modelWithUniqueId:(NSInteger)uniqueId {
     zhRemovableEditItemModel *model = [[zhRemovableEditItemModel alloc] init];
-    model.zh_markId = uniqueId;
+    [model zh_setUniqueId:uniqueId];
     model.zh_usingReservezone = NO;
     model.zh_isInvisible = NO;
     return model;
 }
 
-- (NSInteger)uniqueId {
-    return self.zh_markId;
-}
-
 - (id)copyWithZone:(NSZone *)zone {
     zhRemovableEditItemModel *model = [[zhRemovableEditItemModel alloc] init];
-    model.zh_markId = self.uniqueId;
+    [model zh_setUniqueId:self.uniqueId];
     model.title = self.title;
     model.iconName = self.iconName;
     model.iconUrl = self.iconUrl;
@@ -57,12 +67,19 @@
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     NSDictionary *renameDict = [self zh_renameKeys];
     if ([key isEqualToString:@"uniqueId"] || [key isEqualToString:renameDict[@"uniqueId"]]) {
-        [self setValue:value forKey:@"zh_markId"];
+        [self zh_setUniqueId:[value integerValue]];
     } else {
         if (![renameDict.allValues containsObject:key]) {
             NSLog(@"** %@ UndefinedKey: %@ ** ", self, key);
         }
     }
+}
+
+- (id)valueForKey:(NSString *)key { // 用于模型转成数组或字典时过滤掉私有属性
+    if ([key isEqualToString:@"zh_isInvisible"] || [key isEqualToString:@"zh_usingReservezone"]) return nil;
+    if ([key isEqualToString:@"zh_beInvisible"]) return [super valueForKey:@"zh_isInvisible"];
+    if ([key isEqualToString:@"zh_makeReservezone"]) return [super valueForKey:@"zh_usingReservezone"];
+    return [super valueForKey:key];
 }
 
 - (NSDictionary<NSString *,NSString *> *)zh_renameKeys {
@@ -90,10 +107,7 @@
     NSMutableArray *dataArray = @[].mutableCopy;
     for (NSDictionary *groupData in data) {
         NSArray<NSDictionary *> *dataItems = [groupData objectForKey:@"groupItems"];
-        if (!dataItems) {
-            NSDictionary *renameDict = [self zh_renameKeys];
-            dataItems = [groupData objectForKey:renameDict[@"groupItems"]];
-        }
+        if (!dataItems) dataItems = [groupData objectForKey:[self zh_renameKeys][@"groupItems"]];
         NSParameterAssert([dataItems isKindOfClass:[NSArray class]]);
         NSMutableArray<zhRemovableEditItemModel *> *models = @[].mutableCopy;
         for (NSDictionary *dict in dataItems) {
@@ -107,6 +121,45 @@
         [dataArray addObject:groupModel];
     }
     return dataArray.mutableCopy;
+}
+
++ (NSArray<NSDictionary *> *)unmapWithArray:(NSArray<zhRemovableEditGroupModel *> *)dataArray {
+    NSMutableArray *array = @[].mutableCopy;
+    for (id object in dataArray) {
+        id result = [self recursiveKeyValueWithObj:object];
+        [array addObject:result];
+    }
+    return array;
+}
+
++ (NSDictionary *)recursiveKeyValueWithObj:(id)object {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    Class class = [object class];
+    unsigned int count;
+    while (class!=[NSObject class]) {
+        objc_property_t *properties = class_copyPropertyList(class, &count);
+        for (int i = 0; i<count; i++) {
+            objc_property_t property = properties[i];
+            NSString *propertyName = [[NSString alloc] initWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+            id value = [object valueForKey:propertyName];
+            if (!value) continue;
+            NSMutableArray<id> *array = @[].mutableCopy;
+            if ([value isKindOfClass:[NSArray class]]) {
+                for (id obj in (NSArray *)value) {
+                    id result = [self recursiveKeyValueWithObj:obj];
+                    [array addObject:result];
+                }
+                dictionary[propertyName] = array;
+            } else {
+                dictionary[propertyName] = value;
+            }
+        }
+        if (properties) {
+            free(properties);
+        }
+        class = class_getSuperclass(class); // 得到父类的信息
+    }
+    return dictionary;
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key {
@@ -134,6 +187,10 @@
 
 - (NSDictionary *)zh_renameKeys {
     return @{};
+}
+
+- (void)unmap {
+    
 }
 
 @end

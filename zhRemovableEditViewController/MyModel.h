@@ -7,7 +7,6 @@
 //
 
 #import "zhRemovableEditModel.h"
-#import <MJExtension/MJExtension.h>
 
 @interface MyItemModel : zhRemovableEditItemModel
 
@@ -15,5 +14,7 @@
 @end
 
 @interface MyGroupModel : zhRemovableEditGroupModel
+
+@property (nonatomic, strong) NSString *sd;
 
 @end

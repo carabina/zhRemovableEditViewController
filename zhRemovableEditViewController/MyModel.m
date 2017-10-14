@@ -8,6 +8,7 @@
 //
 
 #import "MyModel.h"
+#import <objc/runtime.h>
 
 @implementation MyItemModel
 
@@ -22,5 +23,6 @@
 - (Class)zh_groupItemsSubclass {
     return [MyItemModel class];
 }
+
 
 @end

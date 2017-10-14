@@ -22,7 +22,6 @@
 		F22B37681F8DF66400009C81 /* zh_REImaginarylineBox.png in Sources */ = {isa = PBXBuildFile; fileRef = F22B37641F8DF65200009C81 /* zh_REImaginarylineBox.png */; };
 		F22B377A1F8F46B500009C81 /* MyData.json in Resources */ = {isa = PBXBuildFile; fileRef = F22B37791F8F46B500009C81 /* MyData.json */; };
 		F22B377D1F8F548D00009C81 /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B377C1F8F548D00009C81 /* MyModel.m */; };
-		F27CDCD81F9079D700D24A70 /* UICollectionView+zhtest.m in Sources */ = {isa = PBXBuildFile; fileRef = F27CDCD71F9079D700D24A70 /* UICollectionView+zhtest.m */; };
 		F2A605011F7D0B72009BF019 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605001F7D0B72009BF019 /* AppDelegate.m */; };
 		F2A605041F7D0B72009BF019 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A605031F7D0B72009BF019 /* ViewController.m */; };
 		F2A605071F7D0B72009BF019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A605051F7D0B72009BF019 /* Main.storyboard */; };
@@ -88,8 +87,6 @@
 		F22B37791F8F46B500009C81 /* MyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyData.json; sourceTree = "<group>"; };
 		F22B377B1F8F548D00009C81 /* MyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
 		F22B377C1F8F548D00009C81 /* MyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
-		F27CDCD61F9079D700D24A70 /* UICollectionView+zhtest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+zhtest.h"; sourceTree = "<group>"; };
-		F27CDCD71F9079D700D24A70 /* UICollectionView+zhtest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+zhtest.m"; sourceTree = "<group>"; };
 		F2A604FC1F7D0B71009BF019 /* zhRemovableEditViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhRemovableEditViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A604FF1F7D0B72009BF019 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2A605001F7D0B72009BF019 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,8 +227,6 @@
 				F2A605031F7D0B72009BF019 /* ViewController.m */,
 				F2A6054F1F7DC78F009BF019 /* MyViewController.h */,
 				F2A605501F7DC78F009BF019 /* MyViewController.m */,
-				F27CDCD61F9079D700D24A70 /* UICollectionView+zhtest.h */,
-				F27CDCD71F9079D700D24A70 /* UICollectionView+zhtest.m */,
 				F22B37791F8F46B500009C81 /* MyData.json */,
 				F22B377B1F8F548D00009C81 /* MyModel.h */,
 				F22B377C1F8F548D00009C81 /* MyModel.m */,
@@ -515,7 +510,6 @@
 				F22B374C1F8CBBA800009C81 /* zhRemovableEditCollectionViewCell.m in Sources */,
 				F22B374D1F8CBBA800009C81 /* zhRemovableEditModel.h in Sources */,
 				F22B374E1F8CBBA800009C81 /* zhRemovableEditModel.m in Sources */,
-				F27CDCD81F9079D700D24A70 /* UICollectionView+zhtest.m in Sources */,
 				F22B374F1F8CBBA800009C81 /* zhRemovableEditViewController.h in Sources */,
 				F22B37501F8CBBA800009C81 /* zhRemovableEditViewController.m in Sources */,
 				F2A605041F7D0B72009BF019 /* ViewController.m in Sources */,
