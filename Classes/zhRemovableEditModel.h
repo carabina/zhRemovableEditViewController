@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
 /// 分组的富文本标题(如果attributedText为空，则使用text)
 @property (nonatomic, strong) NSAttributedString *attributedTitle;
 
-/// 数据源映射到模型 (暂不支持数据模型映射到原始数据，可使用MJExtension框架中的`mj_keyValuesArrayWithObjectArray`方法转换)
+/// 数据源映射到模型
 + (NSMutableArray<zhRemovableEditGroupModel *> *)mapWithData:(NSArray<id> *)data;
 
 // 模型转数组
@@ -65,7 +65,5 @@ typedef NS_ENUM(NSInteger, zhRemovableEditBadgeState) {
 
 /// 可以重写该方法对字段重命名
 - (NSDictionary<NSString *,NSString *> *)zh_renameKeys;
-
-- (void)unmap;
 
 @end

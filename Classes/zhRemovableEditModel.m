@@ -190,8 +190,4 @@ static void *zh_markUniqueIdKey = &zh_markUniqueIdKey;
     return @{};
 }
 
-- (void)unmap {
-    
-}
-
 @end
