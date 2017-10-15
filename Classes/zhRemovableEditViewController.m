@@ -41,38 +41,17 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 @implementation zhRemovableEditViewController
 
-- (instancetype)init {
-    if (self = [super init]) {
-        [self zh_commonConfiguration];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self commonInitialization];
-    [self zh_loadData];
-}
-
-- (void)zh_reloadData {
-    [self zh_commonConfiguration];
-    [self.collectionView reloadData];
-}
-
-- (void)zh_loadData {
-    self.dataArray = @[].mutableCopy;
     [self zh_reloadData];
 }
 
-- (void)zh_commonConfiguration {
-    self.reLayout = [zhRemovableEditViewLayout defaultLayout];
-    self.reImages = [zhRemovableEditSetImages defaultImages];
-    self.showReservezone = NO;
-    self.useSpringAnimation = NO;
-    self.fixedCount = 0;
-    self.maxCount = 0;
+- (void)zh_reloadData {
+    [self showReservezoneCheck];
+    [self.collectionView reloadData];
 }
 
 - (void)commonInitialization {
@@ -94,32 +73,80 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 #pragma mark - Getter / Setter
 
-- (void)setMaxCount:(NSInteger)maxCount {
-    _maxCount = maxCount;
-    [self setShowReservezone:self.showReservezone];
+- (NSMutableArray<zhRemovableEditGroupModel *> *)dataArray {
+    if (_dataArray) return _dataArray;
+    return @[].mutableCopy; // Default value
 }
 
-- (void)setShowReservezone:(BOOL)showReservezone {
-    NSMutableArray<zhRemovableEditItemModel *> *firstDataArray = self.dataArray.firstObject.groupItems;
-    // TODO：待优化
-    if (showReservezone) {
-        _showReservezone = showReservezone;
-        if (firstDataArray.count < self.maxCount) {
-            [firstDataArray addObject:[self reserveModel]];
+- (zhRemovableEditViewLayout *)reLayout {
+    if (_reLayout) return _reLayout;
+    return [zhRemovableEditViewLayout defaultLayout];
+}
+
+- (zhRemovableEditSetImages *)reImages {
+    if (_reImages) return _reImages;
+    return [zhRemovableEditSetImages defaultImages];
+}
+
+- (NSInteger)fixedCount {
+    if (_fixedCount) return _fixedCount;
+    return 0;
+}
+
+- (NSInteger)maxCount {
+    if (_maxCount) return _maxCount;
+    return lrint(CGFLOAT_MAX);
+}
+
+- (BOOL)showReservezone {
+    if (_showReservezone) return _showReservezone;
+    return NO;
+}
+
+#pragma mark - Check
+
+- (void)showReservezoneCheck {
+    NSMutableArray<zhRemovableEditItemModel *> *topArray = self.dataArray.firstObject.groupItems;
+    if (self.showReservezone) {
+        if (topArray.count < self.maxCount) {
+            [self addReserveModelCheck:topArray];
+            _zhIsMaxing = NO;
         } else {
-            if (self.maxCount > 0) _zhIsMaxing = YES;
+            _zhIsMaxing = self.maxCount ? ![self hasReserveModel:topArray] : NO;
         }
     } else {
-        if (self.maxCount && firstDataArray.count >= self.maxCount) {
-            _zhIsMaxing = YES;
-        }
+        _zhIsMaxing = (self.maxCount && topArray.count >= self.maxCount);
     }
 }
 
-- (zhRemovableEditItemModel *)reserveModel {
-    zhRemovableEditItemModel *reservezoneModel = [zhRemovableEditItemModel modelWithUniqueId:-2017];
-    [reservezoneModel setValue:@(YES) forKey:@"zh_usingReservezone"];
-    return reservezoneModel;
+- (BOOL)hasReserveModel:(NSMutableArray<zhRemovableEditItemModel *> *)array {
+    return (array.lastObject.uniqueId == -2017);
+}
+
+- (BOOL)addReserveModelCheck:(NSMutableArray<zhRemovableEditItemModel *> *)topArray {
+    if (![self hasReserveModel:topArray]) {
+        zhRemovableEditItemModel *reservezoneModel = [zhRemovableEditItemModel modelWithUniqueId:-2017];
+        [reservezoneModel setValue:@(YES) forKey:@"zh_usingReservezone"];
+        [topArray addObject:reservezoneModel];
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canContinueAdd {
+    NSMutableArray<zhRemovableEditItemModel *> *topArray = self.dataArray.firstObject.groupItems;
+    if (self.showReservezone) {
+        if (self.maxCount > 0) {
+            if (_zhIsMaxing) {
+                if (topArray.count >= self.maxCount) return NO;
+            } else {
+                if (topArray.count >= self.maxCount + 1) return NO;
+            }
+        }
+    } else {
+        if (self.maxCount && topArray.count >= self.maxCount) return NO;
+    }
+    return YES;
 }
 
 #pragma mark - Switch edit mode
@@ -265,10 +292,11 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
         [self.collectionView performBatchUpdates:^{
             [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
             if (_showReservezone && _zhIsMaxing) {
-                [firstDataArray addObject:[self reserveModel]];
-                NSIndexPath *insertIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
-                [self.collectionView insertItemsAtIndexPaths:@[insertIndexPath]];
-                _zhIsMaxing = NO;
+                if ([self addReserveModelCheck:firstDataArray]) {
+                    _zhIsMaxing = NO;
+                    NSIndexPath *insertIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];
+                    [self.collectionView insertItemsAtIndexPaths:@[insertIndexPath]];
+                }
             }
         } completion:^(BOOL finished) {
             // TODO: 相同id会调用相应的的次数
@@ -322,7 +350,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 
 - (void)zh_addItemWithRemovableEditCollectionViewCell:(zhRemovableEditCollectionViewCell *)cell {
     
-    if (_zhIsMaxing) {
+    if (![self canContinueAdd]) {
         [self zh_removableEditCollectionViewCellMoreThanMaxCount:cell];
         return;
     }
@@ -398,7 +426,7 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
         
     } else {
         [firstDataArray addObject:newItemModel];
-        if (firstDataArray.count == self.maxCount) {
+        if (self.maxCount && firstDataArray.count >= self.maxCount) {
             _zhIsMaxing = YES;
         }
         NSIndexPath *insertIndexPath = [NSIndexPath indexPathForItem:firstDataArray.count - 1 inSection:0];

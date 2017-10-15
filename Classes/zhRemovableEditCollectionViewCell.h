@@ -52,7 +52,6 @@ static void *zh_cellBeInvisibleKey = &zh_cellBeInvisibleKey;
 @property (nonatomic, weak) id <zhRemovableEditCollectionViewCellDelegate> delegate;
 @property (nonatomic, strong) zhRemovableEditSetImages *images;
 @property (nonatomic, strong) zhRemovableEditItemModel *model;
-- (void)setUsingReservezone:(BOOL)usingReservezone;
 
 @end
 

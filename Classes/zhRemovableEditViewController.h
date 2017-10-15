@@ -64,12 +64,6 @@
 /// 设置可拖动区域中最多显示的数量 (默认为0不限制)
 @property (nonatomic, assign) NSInteger maxCount;
 
-/// 重写该方法用于外观自定义设置
-- (void)zh_commonConfiguration;
-
-/// 重写该方法用于设置数据源
-- (void)zh_loadData;
-
 /// 重写该方法自定义点击事件
 - (void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 

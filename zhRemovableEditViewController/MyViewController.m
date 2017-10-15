@@ -19,7 +19,10 @@ static NSString *zh_storageFile = @"zh_Test.plist";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self navigationInitialization];
+    [self initialConfiguration];
+    [self loadData];
 }
 
 - (void)navigationInitialization {
@@ -49,17 +52,14 @@ static NSString *zh_storageFile = @"zh_Test.plist";
     }
 }
 
-#pragma mark - Overwrite methods
-
-- (void)zh_commonConfiguration {
-    [super zh_commonConfiguration];
-    self.showReservezone = YES;
+- (void)initialConfiguration {
     self.useSpringAnimation = NO;
+    self.showReservezone = YES;
     self.fixedCount = 4;
     self.maxCount = 8;
 }
 
-- (void)zh_loadData {
+- (void)loadData {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSDictionary *responseData = [self getData];
         if (!responseData) return ;
@@ -71,6 +71,8 @@ static NSString *zh_storageFile = @"zh_Test.plist";
         });
     });
 }
+
+#pragma mark - Overwrite
 
 -(void)zh_collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     MyGroupModel *gmodel = (MyGroupModel *)self.dataArray[indexPath.section];
