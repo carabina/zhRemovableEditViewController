@@ -13,6 +13,9 @@ static NSString *zh_storageFile = @"zh_Test.plist";
 
 @interface MyViewController ()
 
+@property (nonatomic, strong) UIButton *navRightButton;
+@property (nonatomic, strong) UIButton *navLeftButton;
+
 @end
 
 @implementation MyViewController
@@ -25,29 +28,94 @@ static NSString *zh_storageFile = @"zh_Test.plist";
     [self loadData];
 }
 
+- (UIButton *)navRightButton {
+    if (!_navRightButton) {
+        _navRightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
+        _navRightButton.frame = CGRectMake(0, 0, 40, 30);
+        _navRightButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(16)];
+        UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
+        [_navRightButton setTitleColor:themeColor forState:UIControlStateNormal];
+        [_navRightButton addTarget:self action:@selector(rightButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _navRightButton;
+}
+
+- (UIButton *)navLeftButton {
+    if (!_navLeftButton) {
+        _navLeftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _navLeftButton.frame = CGRectMake(0, 0, 40, 30);
+        _navLeftButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(16)];
+        [_navLeftButton setTitle:@"取消" forState:UIControlStateNormal];
+        UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
+        [_navLeftButton setTitleColor:themeColor forState:UIControlStateNormal];
+        [_navLeftButton addTarget:self action:@selector(leftButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _navLeftButton;
+}
+
 - (void)navigationInitialization {
-    self.navigationItem.title = @"我的应用编辑";
+    self.navigationItem.title = @"全部应用";
     NSDictionary *titleAttri = @{NSFontAttributeName : [UIFont systemFontOfSize:zh_fontSizeFit(18)],
                                  NSForegroundColorAttributeName : [UIColor blackColor]};
     [self.navigationController.navigationBar setTitleTextAttributes:titleAttri];
     
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButton setTitle:@"编辑" forState:UIControlStateNormal];
-    rightButton.frame = CGRectMake(0, 0, 40, 30);
-    rightButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(17)];
-    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(rightButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+    UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
+    self.navigationController.navigationBar.tintColor = themeColor; // 改变导航栏返回按钮颜色
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navRightButton];
+
+//    NSLog(@"superview===> %@", self.navigationController.navigationBar.superview);
+    for (UIView *view in self.navigationController.navigationBar.subviews) {
+//        NSLog(@"view===> %@", view);
+        if ([view isKindOfClass:[NSClassFromString(@"_UINavigationBarContentView") class]]) {
+
+            for (UIView *aView in view.subviews) {
+                if ([NSStringFromClass([aView class]) containsString:@"BarButton"]) {
+                    NSLog(@"有");
+                }
+                
+                if ([aView isKindOfClass:[NSClassFromString(@"_UIButtonBarButton") class]]) {
+                    NSLog(@"%@", aView);
+                }
+            }
+        }
+    }
 }
 
 - (void)rightButtonItemClicked:(UIButton *)sender {
     if (self.isEditable) {
-        [sender setTitle:@"编辑" forState:UIControlStateNormal];
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.title = @"全部应用";
+        [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
         [self zh_closeEditMode];
         [self writeData];
     } else {
-        [sender setTitle:@"完成" forState:UIControlStateNormal];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navLeftButton];
+
+        self.navigationItem.title = @"我的应用编辑";
+        [_navRightButton setTitle:@"完成" forState:UIControlStateNormal];
+        
+        [self zh_enteringEditMode];
+    }
+//    self.navigationController.navigationBar.alpha = 0;
+//    [UIView animateWithDuration:0.75 animations:^{
+//        self.navigationController.navigationBar.alpha = 1;
+//    }];
+}
+
+- (void)leftButtonItemClicked:(UIButton *)sender {
+    if (self.isEditable) {
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.title = @"全部应用";
+        [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [self zh_closeEditMode];
+    } else {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navLeftButton];
+        UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
+        [self.navLeftButton setTitleColor:themeColor forState:UIControlStateNormal];
+        self.navigationItem.title = @"我的应用编辑";
+        [_navRightButton setTitle:@"完成" forState:UIControlStateNormal];
         [self zh_enteringEditMode];
     }
 }
