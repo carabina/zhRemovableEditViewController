@@ -14,7 +14,7 @@
 + (instancetype)defaultLayout {
     zhRemovableEditViewLayout *layout = [[zhRemovableEditViewLayout alloc] init];
     layout.displayCount = 4;
-    layout.sectionInset = UIEdgeInsetsMake(0, zh_sizeFitW(15), 0, zh_sizeFitW(15));
+    layout.sectionInset = UIEdgeInsetsMake(0, zh_sizeFitW(15), zh_sizeFitW(10), zh_sizeFitW(15));
     layout.sectionHeight = zh_sizeFitH(50);
     layout.horizontalSpacing = zh_sizeFitW(15);
     layout.verticalSpacing = zh_sizeFitH(20);
@@ -213,8 +213,8 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
     zhRemovableEditCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:zhRemovableEditCellIdentify forIndexPath:indexPath];
     cell.delegate = self;
     cell.images = self.reImages;
-    cell.model = self.dataArray[indexPath.section].groupItems[indexPath.item];
-    cell.badgeImageView.hidden = !_isEditable;
+    zhRemovableEditItemModel *model = self.dataArray[indexPath.section].groupItems[indexPath.item];
+    [cell setModel:model withEditable:_isEditable];
     return cell;
 }
 
@@ -230,7 +230,11 @@ static NSString *const zhRemovableEditReusableHeaderIdentify = @"zh_removableEdi
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor colorWithRed:246 / 255. green:246 / 255. blue:246 / 255. alpha:1];
+    if (_isEditable) {
+        cell.backgroundColor = [UIColor colorWithRed:246 / 255. green:246 / 255. blue:246 / 255. alpha:1];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

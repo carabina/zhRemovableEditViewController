@@ -53,12 +53,16 @@ static void *zh_cellBeInvisibleKey = &zh_cellBeInvisibleKey;
 @property (nonatomic, strong) zhRemovableEditSetImages *images;
 @property (nonatomic, strong) zhRemovableEditItemModel *model;
 
+- (void)setModel:(zhRemovableEditItemModel *)model withEditable:(BOOL)isEditable;
+
 @end
 
 @interface zhRemovableEditCollectionReusableView : UICollectionReusableView
 
 @property (nonatomic, strong, readonly) UIView *containerView;
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
+@property (nonatomic, strong, readonly) CALayer *lineLayer;
+@property (nonatomic, strong, readonly) CALayer *boxLayer;
 @property (nonatomic, strong) zhRemovableEditGroupModel *sectionModel;
 
 @end

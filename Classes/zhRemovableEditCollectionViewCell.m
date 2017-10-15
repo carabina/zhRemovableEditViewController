@@ -28,7 +28,7 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.userInteractionEnabled = NO;
         _titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(12.f)];
-        _titleLabel.textColor = [UIColor darkGrayColor];
+        _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_titleLabel];
         
@@ -87,7 +87,7 @@
     _reservezoneImageView.image = images.reservezoneImage;
 }
 
-- (void)setModel:(zhRemovableEditItemModel *)model {
+- (void)setModel:(zhRemovableEditItemModel *)model withEditable:(BOOL)isEditable {
     _model = model;
     
     _titleLabel.text = model.title;
@@ -102,8 +102,9 @@
     
     [self setBadgeImageByRemovableEditState:model.badgeState];
     
-    [self setUsingReservezone:[[model valueForKey:@"zh_makeReservezone"] boolValue]];
-    
+    BOOL usingReservezone = [[model valueForKey:@"zh_makeReservezone"] boolValue];
+    [self hideSubviewByUsingReservezone:usingReservezone andEditable:isEditable];
+
     self.hidden = [[model valueForKey:@"zh_beInvisible"] boolValue];
 }
 
@@ -125,11 +126,16 @@
     }
 }
 
-- (void)setUsingReservezone:(BOOL)usingReservezone {
+- (void)hideSubviewByUsingReservezone:(BOOL)usingReservezone andEditable:(BOOL)isEditable {
     _titleLabel.hidden = usingReservezone;
     _imageView.hidden = usingReservezone;
-    _badgeImageView.hidden = usingReservezone;
-    _reservezoneImageView.hidden = !usingReservezone;
+    if (isEditable) {
+        _badgeImageView.hidden = usingReservezone;
+        _reservezoneImageView.hidden = !usingReservezone;
+    } else {
+        _badgeImageView.hidden = YES;
+        _reservezoneImageView.hidden = YES;
+    }
 }
 
 @end
@@ -148,6 +154,14 @@
         _titleLabel.textColor = [UIColor blackColor];
         [_containerView addSubview:_titleLabel];
         
+        _lineLayer = [CALayer layer];
+        _lineLayer.backgroundColor = [UIColor colorWithRed:220 / 255. green:220 / 255. blue:220 / 255. alpha:1].CGColor;
+        [_containerView.layer addSublayer:_lineLayer];
+        
+        _boxLayer = [CALayer layer];
+        _boxLayer.backgroundColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1].CGColor;
+        [_containerView.layer addSublayer:_boxLayer];
+        
         [self subviewsLayout];
     }
     return self;
@@ -156,7 +170,11 @@
 - (void)subviewsLayout {
     CGFloat paddingLeft = zh_sizeFitW(15);
     _containerView.frame = self.bounds;
-    _titleLabel.frame = CGRectMake(paddingLeft, 0, _containerView.frame.size.width - paddingLeft, _containerView.frame.size.height);
+    _lineLayer.frame = CGRectMake(0, 0, self.bounds.size.width, 1 / [UIScreen mainScreen].scale);
+    CGFloat boxH = zh_sizeFitH(12), boxY = (self.bounds.size.height - boxH) / 2;
+    _boxLayer.frame = CGRectMake(paddingLeft, boxY, zh_sizeFitW(4), boxH);
+    CGFloat titX = CGRectGetMaxX(_boxLayer.frame) + zh_sizeFitW(7);
+    _titleLabel.frame = CGRectMake(titX, 0, _containerView.frame.size.width - paddingLeft, _containerView.frame.size.height);
 }
 
 - (void)setSectionModel:(zhRemovableEditGroupModel *)sectionModel {
