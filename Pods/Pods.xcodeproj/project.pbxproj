@@ -7,121 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		068F6DF04EF0371EEC29C6787B63910B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D6FB284F79679CAFC96E2B374FF302 /* NSObject+MJProperty.m */; };
-		094E6ECE34F0CCB085FAA095D24708F4 /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6FF722B58512EAF636070DC72CC7A /* MJPropertyType.m */; };
-		0A1D1BA5F4A6861F59960AE501A61367 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = EB574A30430349912B9AA0E12991FB76 /* MJPropertyKey.m */; };
-		0B67D51C35E79EE135E38084317053DA /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = F18D18F4F677D18DFE17FF43AA71A3C6 /* NSObject+MJKeyValue.m */; };
-		11BF0A3C217C5233EF08A6A2623CEA80 /* NSObject+MJClass.h in Headers */ = {isa = PBXBuildFile; fileRef = B4C4E8583FBE38883C9A8F6CED0B9AB8 /* NSObject+MJClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F3AA5B9EBAAD134BF25B0B89FDF108B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 814D74953564BF921B106C5A8A00E18F /* NSString+MJExtension.m */; };
-		1FBFD94316326DCB9485F8704696806B /* MJExtensionConst.h in Headers */ = {isa = PBXBuildFile; fileRef = F21D3B6AB8A0B971DE7A16782E2E38A0 /* MJExtensionConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29D33D47D4286EC75854283A606EF439 /* Pods-zhRemovableEditViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8644CE118A7A259C7861D1B1B2E32AC1 /* Pods-zhRemovableEditViewController-dummy.m */; };
-		2E04F7FD19DB0B64EA10207786F864EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		383448308BB9C5CB67073E0A8DED4A43 /* NSObject+MJProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = EDDBBBC1617D4C1B338F6208FFEC7DC4 /* NSObject+MJProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58EFF22FEFA78894F9F808799F961BD5 /* MJProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D90F731A3053DB7591E623D48A281E /* MJProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		59A28C2CEFC4537C9DAF55D01C4ACED1 /* MJExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F39865043ADE8A6C5C7161C21F5942 /* MJExtension-dummy.m */; };
-		5BD2A9D0D752792C18F1E7F6CDBEB0FA /* NSString+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A410D0C9C7AA0EF8CB20F85639B8D29 /* NSString+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E89ED15FDB4CE7F92544DDF4589C242 /* MJPropertyType.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E3BDE87C47FE4DA2F8B63B9423E7E1E /* MJPropertyType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64298620A2F1EFAB12386F3861E08D40 /* NSObject+MJCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F358B618C95AF5B81525A3E913689B /* NSObject+MJCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6DA14D61DB56E00FF18F2F75C51454AE /* MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = EF1C24B69A9CA3A0E89CD5BFA5FF4A8F /* MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7410B2A65C0651D85D3B173865D3026B /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9193F6B3E7DA4B89DB231331D181C4B9 /* NSObject+MJClass.m */; };
-		8EC1C8F8C76EDF5D019E8EBA01C2ABB3 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E18CF79B9C18D81A7E99EA6A3B69C77F /* NSObject+MJCoding.m */; };
-		A61CBA1B7EC469C602F47186539239E0 /* MJPropertyKey.h in Headers */ = {isa = PBXBuildFile; fileRef = CDAA16945786608E1C9962CCE56900A6 /* MJPropertyKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B7B68FDABB146B87FA3C9E987D2014DE /* NSObject+MJKeyValue.h in Headers */ = {isa = PBXBuildFile; fileRef = BA34D708EF1B72D4A38AC39D19AD1F24 /* NSObject+MJKeyValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CD4D283A61707C386754BBD31F5BEABB /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5C8878A9E0690D04B5D51B122920D7 /* MJExtensionConst.m */; };
-		DB9B083382DB47E04F1099B309D4F357 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		E5FCA2ABBE2C5EF75F004103BC26D472 /* MJFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = E2A3A3C34DED74C98A33BB0948DCBCEB /* MJFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E697D14E581CAEE081A1F6B467A014B7 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 790A2F1E41BCD00D834922AF37F8FCC7 /* MJProperty.m */; };
-		E9B240A7D5F9C216AAC999B2FF4DCCFA /* Pods-zhRemovableEditViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 303A8276A336967E6CEA700C4BF9AA1C /* Pods-zhRemovableEditViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F53BE19B2CB360AC554A04B27DED8519 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 545233A544BE3DDF31F05409EE873594 /* MJFoundation.m */; };
-		F75E2AE2D12480AE889D1D3B7A654FAA /* MJExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 871F4E87C6D9BE7F5B1DFE948341EB0E /* MJExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13F299D1C71003FF1BA30B886B444309 /* Pods-zhRemovableEditViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 303A8276A336967E6CEA700C4BF9AA1C /* Pods-zhRemovableEditViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		142C0E1CA74CDCC6AEAF3858646D0CB8 /* Pods-zhRemovableEditViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8644CE118A7A259C7861D1B1B2E32AC1 /* Pods-zhRemovableEditViewController-dummy.m */; };
+		6CD17F87B914D64F60298356F3484BA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		96F08640084BD3E800209D1447BA9042 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5AA17C95E926B760FD08E0B487DAEFA2;
-			remoteInfo = MJExtension;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0A410D0C9C7AA0EF8CB20F85639B8D29 /* NSString+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MJExtension.h"; path = "MJExtension/NSString+MJExtension.h"; sourceTree = "<group>"; };
-		0E3BDE87C47FE4DA2F8B63B9423E7E1E /* MJPropertyType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyType.h; path = MJExtension/MJPropertyType.h; sourceTree = "<group>"; };
-		0E51BBF0492D3B68AE710707430DEBE5 /* MJExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJExtension.framework; path = MJExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		131FB777BF4FF6D77287754AD10797CD /* Pods-zhRemovableEditViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-zhRemovableEditViewController.modulemap"; sourceTree = "<group>"; };
 		303A8276A336967E6CEA700C4BF9AA1C /* Pods-zhRemovableEditViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-zhRemovableEditViewController-umbrella.h"; sourceTree = "<group>"; };
-		355FE1A44815D024EE3C7CC9A619E54D /* MJExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MJExtension.modulemap; sourceTree = "<group>"; };
 		3E6DD067109833F9CA7F29D470D6D390 /* Pods-zhRemovableEditViewController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-zhRemovableEditViewController-acknowledgements.plist"; sourceTree = "<group>"; };
-		4042F751B582695E5BDAEBCF605BBF93 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43A423FA70AA30D6F2A27D4632FA3DA7 /* MJExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJExtension.xcconfig; sourceTree = "<group>"; };
-		545233A544BE3DDF31F05409EE873594 /* MJFoundation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJFoundation.m; path = MJExtension/MJFoundation.m; sourceTree = "<group>"; };
+		46F5C7E5D5D10DAAD9FFCDD3FA435D9F /* Pods_zhRemovableEditViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_zhRemovableEditViewController.framework; path = "Pods-zhRemovableEditViewController.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58999426156723976E10E6D692A0F24D /* Pods-zhRemovableEditViewController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zhRemovableEditViewController-frameworks.sh"; sourceTree = "<group>"; };
 		59F4E05582236B21A921D4A0B1BD60F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AB6FF722B58512EAF636070DC72CC7A /* MJPropertyType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJPropertyType.m; path = MJExtension/MJPropertyType.m; sourceTree = "<group>"; };
 		5EC2A03B2DA8A56B4864C3A954D70070 /* Pods-zhRemovableEditViewController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-zhRemovableEditViewController-acknowledgements.markdown"; sourceTree = "<group>"; };
-		63D90F731A3053DB7591E623D48A281E /* MJProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJProperty.h; path = MJExtension/MJProperty.h; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		68B472C17EA8B3A5EB7C0352540CD648 /* Pods-zhRemovableEditViewController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zhRemovableEditViewController-resources.sh"; sourceTree = "<group>"; };
-		73D6FB284F79679CAFC96E2B374FF302 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJProperty.m"; path = "MJExtension/NSObject+MJProperty.m"; sourceTree = "<group>"; };
-		790A2F1E41BCD00D834922AF37F8FCC7 /* MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJProperty.m; path = MJExtension/MJProperty.m; sourceTree = "<group>"; };
 		79E4E8EF344AB982CE91220E9FE62B16 /* Pods-zhRemovableEditViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zhRemovableEditViewController.release.xcconfig"; sourceTree = "<group>"; };
-		814D74953564BF921B106C5A8A00E18F /* NSString+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+MJExtension.m"; path = "MJExtension/NSString+MJExtension.m"; sourceTree = "<group>"; };
 		8644CE118A7A259C7861D1B1B2E32AC1 /* Pods-zhRemovableEditViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-zhRemovableEditViewController-dummy.m"; sourceTree = "<group>"; };
-		871F4E87C6D9BE7F5B1DFE948341EB0E /* MJExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJExtension-umbrella.h"; sourceTree = "<group>"; };
 		917B472959479F07EF3081F42B5FF0A1 /* Pods-zhRemovableEditViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zhRemovableEditViewController.debug.xcconfig"; sourceTree = "<group>"; };
-		9193F6B3E7DA4B89DB231331D181C4B9 /* NSObject+MJClass.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJClass.m"; path = "MJExtension/NSObject+MJClass.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A6F39865043ADE8A6C5C7161C21F5942 /* MJExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJExtension-dummy.m"; sourceTree = "<group>"; };
-		AF5C8878A9E0690D04B5D51B122920D7 /* MJExtensionConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJExtensionConst.m; path = MJExtension/MJExtensionConst.m; sourceTree = "<group>"; };
-		B4C4E8583FBE38883C9A8F6CED0B9AB8 /* NSObject+MJClass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJClass.h"; path = "MJExtension/NSObject+MJClass.h"; sourceTree = "<group>"; };
-		B65911E7C6ECEF13EE64894D077C4990 /* Pods_zhRemovableEditViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_zhRemovableEditViewController.framework; path = "Pods-zhRemovableEditViewController.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA34D708EF1B72D4A38AC39D19AD1F24 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJKeyValue.h"; path = "MJExtension/NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
-		C5F358B618C95AF5B81525A3E913689B /* NSObject+MJCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJCoding.h"; path = "MJExtension/NSObject+MJCoding.h"; sourceTree = "<group>"; };
-		CDAA16945786608E1C9962CCE56900A6 /* MJPropertyKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyKey.h; path = MJExtension/MJPropertyKey.h; sourceTree = "<group>"; };
-		D9B34E0F2D80D48B7F00540C7733B21F /* MJExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJExtension-prefix.pch"; sourceTree = "<group>"; };
-		E18CF79B9C18D81A7E99EA6A3B69C77F /* NSObject+MJCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJCoding.m"; path = "MJExtension/NSObject+MJCoding.m"; sourceTree = "<group>"; };
-		E2A3A3C34DED74C98A33BB0948DCBCEB /* MJFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJFoundation.h; path = MJExtension/MJFoundation.h; sourceTree = "<group>"; };
-		EB574A30430349912B9AA0E12991FB76 /* MJPropertyKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJPropertyKey.m; path = MJExtension/MJPropertyKey.m; sourceTree = "<group>"; };
-		EDDBBBC1617D4C1B338F6208FFEC7DC4 /* NSObject+MJProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJProperty.h"; path = "MJExtension/NSObject+MJProperty.h"; sourceTree = "<group>"; };
-		EF1C24B69A9CA3A0E89CD5BFA5FF4A8F /* MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJExtension.h; path = MJExtension/MJExtension.h; sourceTree = "<group>"; };
-		F18D18F4F677D18DFE17FF43AA71A3C6 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJKeyValue.m"; path = "MJExtension/NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
-		F21D3B6AB8A0B971DE7A16782E2E38A0 /* MJExtensionConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJExtensionConst.h; path = MJExtension/MJExtensionConst.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01F5D8AA0DC41A81CA94CB320713D684 /* Frameworks */ = {
+		55579AB0FDF2B0134081F3AE3B482D03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E04F7FD19DB0B64EA10207786F864EB /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BBE7DA3ED65B0AA372E3EE2B8E81950 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DB9B083382DB47E04F1099B309D4F357 /* Foundation.framework in Frameworks */,
+				6CD17F87B914D64F60298356F3484BA9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20F73F182F9BE5BB03416DE2DCE270AD /* Support Files */ = {
+		68E911746AA7C1BEF101B4866A0AFFB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4042F751B582695E5BDAEBCF605BBF93 /* Info.plist */,
-				355FE1A44815D024EE3C7CC9A619E54D /* MJExtension.modulemap */,
-				43A423FA70AA30D6F2A27D4632FA3DA7 /* MJExtension.xcconfig */,
-				A6F39865043ADE8A6C5C7161C21F5942 /* MJExtension-dummy.m */,
-				D9B34E0F2D80D48B7F00540C7733B21F /* MJExtension-prefix.pch */,
-				871F4E87C6D9BE7F5B1DFE948341EB0E /* MJExtension-umbrella.h */,
+				46F5C7E5D5D10DAAD9FFCDD3FA435D9F /* Pods_zhRemovableEditViewController.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/MJExtension";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -129,8 +53,7 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				88FDEAC399DE779333B834CB61569CEF /* Pods */,
-				F49230BD2E92D6E9AB9C248FBF91194A /* Products */,
+				68E911746AA7C1BEF101B4866A0AFFB6 /* Products */,
 				F80C13C16356A2B8F6031BB0FDDE749E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -153,14 +76,6 @@
 			path = "Target Support Files/Pods-zhRemovableEditViewController";
 			sourceTree = "<group>";
 		};
-		88FDEAC399DE779333B834CB61569CEF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FCDFB6E3D607F6356178E2CCB780E066 /* MJExtension */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,15 +92,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F49230BD2E92D6E9AB9C248FBF91194A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0E51BBF0492D3B68AE710707430DEBE5 /* MJExtension.framework */,
-				B65911E7C6ECEF13EE64894D077C4990 /* Pods_zhRemovableEditViewController.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F80C13C16356A2B8F6031BB0FDDE749E /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,102 +100,35 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		FCDFB6E3D607F6356178E2CCB780E066 /* MJExtension */ = {
-			isa = PBXGroup;
-			children = (
-				EF1C24B69A9CA3A0E89CD5BFA5FF4A8F /* MJExtension.h */,
-				F21D3B6AB8A0B971DE7A16782E2E38A0 /* MJExtensionConst.h */,
-				AF5C8878A9E0690D04B5D51B122920D7 /* MJExtensionConst.m */,
-				E2A3A3C34DED74C98A33BB0948DCBCEB /* MJFoundation.h */,
-				545233A544BE3DDF31F05409EE873594 /* MJFoundation.m */,
-				63D90F731A3053DB7591E623D48A281E /* MJProperty.h */,
-				790A2F1E41BCD00D834922AF37F8FCC7 /* MJProperty.m */,
-				CDAA16945786608E1C9962CCE56900A6 /* MJPropertyKey.h */,
-				EB574A30430349912B9AA0E12991FB76 /* MJPropertyKey.m */,
-				0E3BDE87C47FE4DA2F8B63B9423E7E1E /* MJPropertyType.h */,
-				5AB6FF722B58512EAF636070DC72CC7A /* MJPropertyType.m */,
-				B4C4E8583FBE38883C9A8F6CED0B9AB8 /* NSObject+MJClass.h */,
-				9193F6B3E7DA4B89DB231331D181C4B9 /* NSObject+MJClass.m */,
-				C5F358B618C95AF5B81525A3E913689B /* NSObject+MJCoding.h */,
-				E18CF79B9C18D81A7E99EA6A3B69C77F /* NSObject+MJCoding.m */,
-				BA34D708EF1B72D4A38AC39D19AD1F24 /* NSObject+MJKeyValue.h */,
-				F18D18F4F677D18DFE17FF43AA71A3C6 /* NSObject+MJKeyValue.m */,
-				EDDBBBC1617D4C1B338F6208FFEC7DC4 /* NSObject+MJProperty.h */,
-				73D6FB284F79679CAFC96E2B374FF302 /* NSObject+MJProperty.m */,
-				0A410D0C9C7AA0EF8CB20F85639B8D29 /* NSString+MJExtension.h */,
-				814D74953564BF921B106C5A8A00E18F /* NSString+MJExtension.m */,
-				20F73F182F9BE5BB03416DE2DCE270AD /* Support Files */,
-			);
-			name = MJExtension;
-			path = MJExtension;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		10FFFE914A6BB89E6958F0F095A25033 /* Headers */ = {
+		E6261EE5309A1BB92D2C0E9DB9F88AE5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B240A7D5F9C216AAC999B2FF4DCCFA /* Pods-zhRemovableEditViewController-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBC8EBF9CF85747F8988979882C90A62 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F75E2AE2D12480AE889D1D3B7A654FAA /* MJExtension-umbrella.h in Headers */,
-				6DA14D61DB56E00FF18F2F75C51454AE /* MJExtension.h in Headers */,
-				1FBFD94316326DCB9485F8704696806B /* MJExtensionConst.h in Headers */,
-				E5FCA2ABBE2C5EF75F004103BC26D472 /* MJFoundation.h in Headers */,
-				58EFF22FEFA78894F9F808799F961BD5 /* MJProperty.h in Headers */,
-				A61CBA1B7EC469C602F47186539239E0 /* MJPropertyKey.h in Headers */,
-				5E89ED15FDB4CE7F92544DDF4589C242 /* MJPropertyType.h in Headers */,
-				11BF0A3C217C5233EF08A6A2623CEA80 /* NSObject+MJClass.h in Headers */,
-				64298620A2F1EFAB12386F3861E08D40 /* NSObject+MJCoding.h in Headers */,
-				B7B68FDABB146B87FA3C9E987D2014DE /* NSObject+MJKeyValue.h in Headers */,
-				383448308BB9C5CB67073E0A8DED4A43 /* NSObject+MJProperty.h in Headers */,
-				5BD2A9D0D752792C18F1E7F6CDBEB0FA /* NSString+MJExtension.h in Headers */,
+				13F299D1C71003FF1BA30B886B444309 /* Pods-zhRemovableEditViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5798D15F546B4417AF0FFBE4FF3D778E /* Pods-zhRemovableEditViewController */ = {
+		61D73D72E9744276CD6C98E6FF70ADD1 /* Pods-zhRemovableEditViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEA891EE0CA1B2BCB4B2E76253702B73 /* Build configuration list for PBXNativeTarget "Pods-zhRemovableEditViewController" */;
+			buildConfigurationList = 08383DEAC8AF5EDF84ADE2E8AF9FB0FB /* Build configuration list for PBXNativeTarget "Pods-zhRemovableEditViewController" */;
 			buildPhases = (
-				F92995177110F191F0F9AC1C150156C8 /* Sources */,
-				7BBE7DA3ED65B0AA372E3EE2B8E81950 /* Frameworks */,
-				10FFFE914A6BB89E6958F0F095A25033 /* Headers */,
+				85300989073BE5728F9F59B61D9F57E6 /* Sources */,
+				55579AB0FDF2B0134081F3AE3B482D03 /* Frameworks */,
+				E6261EE5309A1BB92D2C0E9DB9F88AE5 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D43FE79A2E6FB9D4FA4C74B15A60EF86 /* PBXTargetDependency */,
 			);
 			name = "Pods-zhRemovableEditViewController";
 			productName = "Pods-zhRemovableEditViewController";
-			productReference = B65911E7C6ECEF13EE64894D077C4990 /* Pods_zhRemovableEditViewController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5AA17C95E926B760FD08E0B487DAEFA2 /* MJExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 06564E4F5A40A02610AFA51432CB9187 /* Build configuration list for PBXNativeTarget "MJExtension" */;
-			buildPhases = (
-				4962C9C292AEFFE5F9C38D2D21A02B48 /* Sources */,
-				01F5D8AA0DC41A81CA94CB320713D684 /* Frameworks */,
-				EBC8EBF9CF85747F8988979882C90A62 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MJExtension;
-			productName = MJExtension;
-			productReference = 0E51BBF0492D3B68AE710707430DEBE5 /* MJExtension.framework */;
+			productReference = 46F5C7E5D5D10DAAD9FFCDD3FA435D9F /* Pods_zhRemovableEditViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -309,53 +148,25 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = F49230BD2E92D6E9AB9C248FBF91194A /* Products */;
+			productRefGroup = 68E911746AA7C1BEF101B4866A0AFFB6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5AA17C95E926B760FD08E0B487DAEFA2 /* MJExtension */,
-				5798D15F546B4417AF0FFBE4FF3D778E /* Pods-zhRemovableEditViewController */,
+				61D73D72E9744276CD6C98E6FF70ADD1 /* Pods-zhRemovableEditViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4962C9C292AEFFE5F9C38D2D21A02B48 /* Sources */ = {
+		85300989073BE5728F9F59B61D9F57E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59A28C2CEFC4537C9DAF55D01C4ACED1 /* MJExtension-dummy.m in Sources */,
-				CD4D283A61707C386754BBD31F5BEABB /* MJExtensionConst.m in Sources */,
-				F53BE19B2CB360AC554A04B27DED8519 /* MJFoundation.m in Sources */,
-				E697D14E581CAEE081A1F6B467A014B7 /* MJProperty.m in Sources */,
-				0A1D1BA5F4A6861F59960AE501A61367 /* MJPropertyKey.m in Sources */,
-				094E6ECE34F0CCB085FAA095D24708F4 /* MJPropertyType.m in Sources */,
-				7410B2A65C0651D85D3B173865D3026B /* NSObject+MJClass.m in Sources */,
-				8EC1C8F8C76EDF5D019E8EBA01C2ABB3 /* NSObject+MJCoding.m in Sources */,
-				0B67D51C35E79EE135E38084317053DA /* NSObject+MJKeyValue.m in Sources */,
-				068F6DF04EF0371EEC29C6787B63910B /* NSObject+MJProperty.m in Sources */,
-				1F3AA5B9EBAAD134BF25B0B89FDF108B /* NSString+MJExtension.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F92995177110F191F0F9AC1C150156C8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29D33D47D4286EC75854283A606EF439 /* Pods-zhRemovableEditViewController-dummy.m in Sources */,
+				142C0E1CA74CDCC6AEAF3858646D0CB8 /* Pods-zhRemovableEditViewController-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D43FE79A2E6FB9D4FA4C74B15A60EF86 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MJExtension;
-			target = 5AA17C95E926B760FD08E0B487DAEFA2 /* MJExtension */;
-			targetProxy = 96F08640084BD3E800209D1447BA9042 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3890D7C92DE120C2BA762135796CFA80 /* Release */ = {
@@ -401,39 +212,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		3A2C6E15B8A13E481233069B555EC1AB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43A423FA70AA30D6F2A27D4632FA3DA7 /* MJExtension.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MJExtension/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MJExtension/MJExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MJExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		3BADA370475E93942AD0153572E1B595 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -484,76 +262,7 @@
 			};
 			name = Debug;
 		};
-		6B4394A904B31520629C2C30AB23A474 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43A423FA70AA30D6F2A27D4632FA3DA7 /* MJExtension.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MJExtension/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MJExtension/MJExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MJExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		76CE647B89D59A62406B7C674DBFDFF5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 917B472959479F07EF3081F42B5FF0A1 /* Pods-zhRemovableEditViewController.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-zhRemovableEditViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_zhRemovableEditViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A54E265E5EAC79A1D8435D15D83D60BF /* Release */ = {
+		741329978803C37F9A62D89A18054026 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 79E4E8EF344AB982CE91220E9FE62B16 /* Pods-zhRemovableEditViewController.release.xcconfig */;
 			buildSettings = {
@@ -589,14 +298,50 @@
 			};
 			name = Release;
 		};
+		7A38B1E24B78D427A862424C37A254E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 917B472959479F07EF3081F42B5FF0A1 /* Pods-zhRemovableEditViewController.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-zhRemovableEditViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-zhRemovableEditViewController/Pods-zhRemovableEditViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_zhRemovableEditViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		06564E4F5A40A02610AFA51432CB9187 /* Build configuration list for PBXNativeTarget "MJExtension" */ = {
+		08383DEAC8AF5EDF84ADE2E8AF9FB0FB /* Build configuration list for PBXNativeTarget "Pods-zhRemovableEditViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3A2C6E15B8A13E481233069B555EC1AB /* Debug */,
-				6B4394A904B31520629C2C30AB23A474 /* Release */,
+				7A38B1E24B78D427A862424C37A254E2 /* Debug */,
+				741329978803C37F9A62D89A18054026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -606,15 +351,6 @@
 			buildConfigurations = (
 				3BADA370475E93942AD0153572E1B595 /* Debug */,
 				3890D7C92DE120C2BA762135796CFA80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEA891EE0CA1B2BCB4B2E76253702B73 /* Build configuration list for PBXNativeTarget "Pods-zhRemovableEditViewController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				76CE647B89D59A62406B7C674DBFDFF5 /* Debug */,
-				A54E265E5EAC79A1D8435D15D83D60BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

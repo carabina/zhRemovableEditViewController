@@ -9,6 +9,8 @@
 #import "MyViewController.h"
 #import "MyModel.h"
 
+#define zh_ThemeColor [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1]
+
 static NSString *zh_storageFile = @"zh_Test.plist";
 
 @interface MyViewController ()
@@ -28,88 +30,34 @@ static NSString *zh_storageFile = @"zh_Test.plist";
     [self loadData];
 }
 
-- (UIButton *)navRightButton {
-    if (!_navRightButton) {
-        _navRightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
-        _navRightButton.frame = CGRectMake(0, 0, 40, 30);
-        _navRightButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(16)];
-        UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
-        [_navRightButton setTitleColor:themeColor forState:UIControlStateNormal];
-        [_navRightButton addTarget:self action:@selector(rightButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _navRightButton;
-}
-
-- (UIButton *)navLeftButton {
-    if (!_navLeftButton) {
-        _navLeftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _navLeftButton.frame = CGRectMake(0, 0, 40, 30);
-        _navLeftButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(16)];
-        [_navLeftButton setTitle:@"取消" forState:UIControlStateNormal];
-        UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
-        [_navLeftButton setTitleColor:themeColor forState:UIControlStateNormal];
-        [_navLeftButton addTarget:self action:@selector(leftButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _navLeftButton;
-}
-
 - (void)navigationInitialization {
     self.navigationItem.title = @"全部应用";
     NSDictionary *titleAttri = @{NSFontAttributeName : [UIFont systemFontOfSize:zh_fontSizeFit(18)],
                                  NSForegroundColorAttributeName : [UIColor blackColor]};
     [self.navigationController.navigationBar setTitleTextAttributes:titleAttri];
     
-    UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
-    self.navigationController.navigationBar.tintColor = themeColor; // 改变导航栏返回按钮颜色
+    self.navigationController.navigationBar.tintColor = zh_ThemeColor; // 改变导航栏返回按钮颜色
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navRightButton];
-
-//    NSLog(@"superview===> %@", self.navigationController.navigationBar.superview);
-    for (UIView *view in self.navigationController.navigationBar.subviews) {
-//        NSLog(@"view===> %@", view);
-        if ([view isKindOfClass:[NSClassFromString(@"_UINavigationBarContentView") class]]) {
-
-            for (UIView *aView in view.subviews) {
-                if ([NSStringFromClass([aView class]) containsString:@"BarButton"]) {
-                    NSLog(@"有");
-                }
-                
-                if ([aView isKindOfClass:[NSClassFromString(@"_UIButtonBarButton") class]]) {
-                    NSLog(@"%@", aView);
-                }
-            }
-        }
-    }
 }
 
 - (void)rightButtonItemClicked:(UIButton *)sender {
-    if (self.isEditable) {
-        self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.title = @"全部应用";
-        [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
-        [self zh_closeEditMode];
-        [self writeData];
-    } else {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navLeftButton];
-
-        self.navigationItem.title = @"我的应用编辑";
-        [_navRightButton setTitle:@"完成" forState:UIControlStateNormal];
-        
-        [self zh_enteringEditMode];
-    }
-//    self.navigationController.navigationBar.alpha = 0;
-//    [UIView animateWithDuration:0.75 animations:^{
-//        self.navigationController.navigationBar.alpha = 1;
-//    }];
+    [self changeState:NO];
 }
 
 - (void)leftButtonItemClicked:(UIButton *)sender {
+    [self changeState:YES];
+}
+
+- (void)changeState:(BOOL)isCanael {
     if (self.isEditable) {
         self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.title = @"全部应用";
         [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
         [self zh_closeEditMode];
+        if (!isCanael) {
+            [self writeData];
+        }
     } else {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.navLeftButton];
         UIColor *themeColor = [UIColor colorWithRed:18 / 255. green:150 / 255. blue:219 / 255. alpha:1];
@@ -118,9 +66,16 @@ static NSString *zh_storageFile = @"zh_Test.plist";
         [_navRightButton setTitle:@"完成" forState:UIControlStateNormal];
         [self zh_enteringEditMode];
     }
+    [self loadData];
 }
 
 - (void)initialConfiguration {
+    zhRemovableEditSetImages *images = [[zhRemovableEditSetImages alloc] init];
+    images.reservezoneImage = [UIImage imageNamed:@"zh_REImaginarylineBox"];
+    images.badgeAddImage = [UIImage imageNamed:@"zh_REBadgeAdd"];
+    images.badgeDeleteImage = [UIImage imageNamed:@"zh_REBadgeDelete"];
+    images.badgeSelectedImage = [UIImage imageNamed:@"zh_REBadgeDone"];
+    self.reImages = images;
     self.useSpringAnimation = NO;
     self.showReservezone = YES;
     self.fixedCount = 4;
@@ -173,10 +128,35 @@ static NSString *zh_storageFile = @"zh_Test.plist";
     NSString *path = [documentDir stringByAppendingPathComponent:zh_storageFile];
     
     NSArray *dictArray = [MyGroupModel unmapWithArray:self.dataArray];
-    NSLog(@"dictArray==> %@", dictArray);
     NSDictionary *storageDict = @{@"Group" : dictArray};
     BOOL re = [storageDict writeToFile:path atomically:YES];
     if (re) NSLog(@"write yes");
+}
+
+#pragma mark - Lazy
+
+- (UIButton *)navRightButton {
+    if (!_navRightButton) {
+        _navRightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_navRightButton setTitle:@"编辑" forState:UIControlStateNormal];
+        _navRightButton.frame = CGRectMake(0, 0, 40, 30);
+        _navRightButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(16)];
+        [_navRightButton setTitleColor:zh_ThemeColor forState:UIControlStateNormal];
+        [_navRightButton addTarget:self action:@selector(rightButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _navRightButton;
+}
+
+- (UIButton *)navLeftButton {
+    if (!_navLeftButton) {
+        _navLeftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _navLeftButton.frame = CGRectMake(0, 0, 40, 30);
+        _navLeftButton.titleLabel.font = [UIFont systemFontOfSize:zh_fontSizeFit(16)];
+        [_navLeftButton setTitle:@"取消" forState:UIControlStateNormal];
+        [_navLeftButton setTitleColor:zh_ThemeColor forState:UIControlStateNormal];
+        [_navLeftButton addTarget:self action:@selector(leftButtonItemClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _navLeftButton;
 }
 
 @end

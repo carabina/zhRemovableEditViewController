@@ -12,10 +12,10 @@
 
 + (instancetype)defaultImages {
     zhRemovableEditSetImages *images = [[zhRemovableEditSetImages alloc] init];
-    images.reservezoneImage = [UIImage imageNamed:@"zh_REImaginarylineBox"];
-    images.badgeAddImage = [UIImage imageNamed:@"zh_REBadgeAdd"];
-    images.badgeDeleteImage = [UIImage imageNamed:@"zh_REBadgeDelete"];
-    images.badgeSelectedImage = [UIImage imageNamed:@"zh_REBadgeDone"];
+    images.reservezoneImage = nil;
+    images.badgeAddImage = nil;
+    images.badgeDeleteImage = nil;
+    images.badgeSelectedImage = nil;
     return images;
 }
 

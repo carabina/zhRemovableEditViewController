@@ -6,6 +6,6 @@ use_frameworks!
 
 target 'zhRemovableEditViewController' do
     
-  pod 'MJExtension', '~> 3.0.13'
+
     
 end
