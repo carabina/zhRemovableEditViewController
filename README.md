@@ -33,6 +33,6 @@ snail-z, haozhang0770@163.com
 
 ## 许可
 
-ZhRemovableEditViewController is released under the MIT License.
+ZhRemovableEditViewController is released under the [MIT License](https://github.com/snail-z/zhRemovableEditViewController/blob/master/LICENSE). 
 
 
